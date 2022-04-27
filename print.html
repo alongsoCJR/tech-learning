@@ -1,0 +1,1515 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>技术架构学习</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><li class="part-title">教务技术学习笔记</li><li class="chapter-item "><a href="index.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li class="chapter-item "><a href="chapter_0/toc.html"><strong aria-hidden="true">2.</strong> Coding</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_0/admin.html"><strong aria-hidden="true">2.1.</strong> admin</a></li><li class="chapter-item "><a href="chapter_0/common-design.html"><strong aria-hidden="true">2.2.</strong> common-design</a></li><li class="chapter-item "><a href="chapter_0/common-elasticsearch.html"><strong aria-hidden="true">2.3.</strong> common-elasticsearch</a></li></ol></li><li class="chapter-item "><a href="chapter_1/toc.html"><strong aria-hidden="true">3.</strong> Akka</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_1/academy.html"><strong aria-hidden="true">3.1.</strong> Lightbend</a></li><li class="chapter-item "><a href="chapter_1/akka.html"><strong aria-hidden="true">3.2.</strong> Akka简介</a></li><li class="chapter-item "><a href="chapter_1/akka-actor.html"><strong aria-hidden="true">3.3.</strong> Akka Actor</a></li><li class="chapter-item "><a href="chapter_1/akka-remoting.html"><strong aria-hidden="true">3.4.</strong> Akka Remoting</a></li><li class="chapter-item "><a href="chapter_1/akka-http.html"><strong aria-hidden="true">3.5.</strong> Akka Http</a></li><li class="chapter-item "><a href="chapter_1/akka-testkit.html"><strong aria-hidden="true">3.6.</strong> Akka TestKit</a></li><li class="chapter-item "><a href="chapter_1/akka-stream.html"><strong aria-hidden="true">3.7.</strong> Akka Stream</a></li><li class="chapter-item "><a href="chapter_1/akka-distributed-data.html"><strong aria-hidden="true">3.8.</strong> Akka Distributed Data</a></li><li class="chapter-item "><a href="chapter_1/akka-cluster.html"><strong aria-hidden="true">3.9.</strong> Akka Cluster</a></li><li class="chapter-item "><a href="chapter_1/akka-persistence.html"><strong aria-hidden="true">3.10.</strong> Akka Persistence</a></li><li class="chapter-item "><a href="chapter_1/akka-utilities.html"><strong aria-hidden="true">3.11.</strong> Akka Utilities</a></li><li class="chapter-item "><a href="chapter_1/Book.html"><strong aria-hidden="true">3.12.</strong> Book</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_1/mybook/akka-in-action.html"><strong aria-hidden="true">3.12.1.</strong> Akka实战</a></li><li class="chapter-item "><a href="chapter_1/mybook/learning-akka.html"><strong aria-hidden="true">3.12.2.</strong> Akka入门与实践</a></li><li class="chapter-item "><a href="chapter_1/mybook/applied-akka-patterns.html"><strong aria-hidden="true">3.12.3.</strong> Akka应用模式</a></li><li class="chapter-item "><a href="chapter_1/mybook/reactive-design-pattern.html"><strong aria-hidden="true">3.12.4.</strong> 反应式设计模式</a></li><li class="chapter-item "><a href="chapter_1/mybook/reactive-application-development.html"><strong aria-hidden="true">3.12.5.</strong> 反应式应用开发</a></li></ol></li></ol></li><li class="chapter-item "><a href="chapter_2/toc.html"><strong aria-hidden="true">4.</strong> Consul</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_2/consul.html"><strong aria-hidden="true">4.1.</strong> Consul简介</a></li></ol></li><li class="chapter-item "><a href="chapter_3/toc.html"><strong aria-hidden="true">5.</strong> Hazelcast</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_3/Hazelcast.html"><strong aria-hidden="true">5.1.</strong> Hazelcast简介</a></li><li class="chapter-item "><a href="chapter_3/cluster.html"><strong aria-hidden="true">5.2.</strong> Cluster</a></li><li class="chapter-item "><a href="chapter_3/Distributed-Data-Structures.html"><strong aria-hidden="true">5.3.</strong> Distributed Data Structures</a></li></ol></li><li class="chapter-item "><a href="chapter_4/toc.html"><strong aria-hidden="true">6.</strong> Jackson</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_4/Jackson.html"><strong aria-hidden="true">6.1.</strong> Jackson简介</a></li></ol></li><li class="chapter-item "><a href="chapter_5/toc.html"><strong aria-hidden="true">7.</strong> ElasticStack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_5/elasticsearch.html"><strong aria-hidden="true">7.1.</strong> ElasticSearch</a></li><li class="chapter-item "><a href="chapter_5/LogStash.html"><strong aria-hidden="true">7.2.</strong> LogStash</a></li><li class="chapter-item "><a href="chapter_5/kibana.html"><strong aria-hidden="true">7.3.</strong> kibana</a></li><li class="chapter-item "><a href="chapter_5/beat.html"><strong aria-hidden="true">7.4.</strong> beat</a></li><li class="chapter-item "><a href="chapter_5/Lucene.html"><strong aria-hidden="true">7.5.</strong> Lucene</a></li><li class="chapter-item "><a href="chapter_5/Book.html"><strong aria-hidden="true">7.6.</strong> Book</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_5/mybook/elasticsearch-the-definitive-guide.html"><strong aria-hidden="true">7.6.1.</strong> Elasticsearch权威指南</a></li><li class="chapter-item "><a href="chapter_5/mybook/elasticsearch-in-action.html"><strong aria-hidden="true">7.6.2.</strong> Elasticsearch实战</a></li><li class="chapter-item "><a href="chapter_5/mybook/mastering-elasticsearch.html"><strong aria-hidden="true">7.6.3.</strong> 深入理解Elasticsearch</a></li><li class="chapter-item "><a href="chapter_5/mybook/elasticsearch-code.html"><strong aria-hidden="true">7.6.4.</strong> Elasticsearch源码解析与优化实战</a></li></ol></li></ol></li><li class="chapter-item "><a href="chapter_6/toc.html"><strong aria-hidden="true">8.</strong> Kafka</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_6/Kafka.html"><strong aria-hidden="true">8.1.</strong> Kafka</a></li><li class="chapter-item "><a href="chapter_6/Operations.html"><strong aria-hidden="true">8.2.</strong> Operations</a></li><li class="chapter-item "><a href="chapter_6/Streaming.html"><strong aria-hidden="true">8.3.</strong> Streaming</a></li><li class="chapter-item "><a href="chapter_6/Book.html"><strong aria-hidden="true">8.4.</strong> Book</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_6/mybook/Kafka-The-Definitive-Guide.html"><strong aria-hidden="true">8.4.1.</strong> Kafka权威指南</a></li><li class="chapter-item "><a href="chapter_6/mybook/Apache-Kafka-In-Action.html"><strong aria-hidden="true">8.4.2.</strong> Apache Kafka实战</a></li><li class="chapter-item "><a href="chapter_6/mybook/Deep-Kafka.html"><strong aria-hidden="true">8.4.3.</strong> 深入理解Kafka</a></li><li class="chapter-item "><a href="chapter_6/mybook/Apache-Kafka-Code.html"><strong aria-hidden="true">8.4.4.</strong> Apache Kafka源码剖析</a></li></ol></li></ol></li><li class="chapter-item "><a href="chapter_7/toc.html"><strong aria-hidden="true">9.</strong> Gradle</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_7/gradle.html"><strong aria-hidden="true">9.1.</strong> Gradle简介</a></li><li class="chapter-item "><a href="chapter_7/Book.html"><strong aria-hidden="true">9.2.</strong> Book</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_7/mybook/gradle-in-action.html"><strong aria-hidden="true">9.2.1.</strong> Gradle实战</a></li></ol></li></ol></li><li class="chapter-item "><a href="chapter_8/toc.html"><strong aria-hidden="true">10.</strong> Druid</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_8/Druid.html"><strong aria-hidden="true">10.1.</strong> Druid简介</a></li></ol></li><li class="chapter-item "><a href="chapter_9/toc.html"><strong aria-hidden="true">11.</strong> Spring</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_9/SpringCore.html"><strong aria-hidden="true">11.1.</strong> Spring Core</a></li><li class="chapter-item "><a href="chapter_9/SpringWebMVC.html"><strong aria-hidden="true">11.2.</strong> Spring WebMVC</a></li><li class="chapter-item "><a href="chapter_9/SpringTest.html"><strong aria-hidden="true">11.3.</strong> Spring Test</a></li><li class="chapter-item "><a href="chapter_9/SpringBoot.html"><strong aria-hidden="true">11.4.</strong> Spring Boot</a></li><li class="chapter-item "><a href="chapter_9/SpringBootAdmin.html"><strong aria-hidden="true">11.5.</strong> Spring Boot Admin</a></li><li class="chapter-item "><a href="chapter_9/SpringCloudCommon.html"><strong aria-hidden="true">11.6.</strong> Spring Cloud Common</a></li><li class="chapter-item "><a href="chapter_9/SpringCloudConsul.html"><strong aria-hidden="true">11.7.</strong> Spring Cloud Consul</a></li><li class="chapter-item "><a href="chapter_9/SpringCloudConfig.html"><strong aria-hidden="true">11.8.</strong> Spring Cloud Config</a></li><li class="chapter-item "><a href="chapter_9/SpringCloudGateway.html"><strong aria-hidden="true">11.9.</strong> Spring Cloud Gateway</a></li><li class="chapter-item "><a href="chapter_9/SpringCloudOpenFeign.html"><strong aria-hidden="true">11.10.</strong> Spring Cloud OpenFeign</a></li><li class="chapter-item "><a href="chapter_9/SpringIntegration.html"><strong aria-hidden="true">11.11.</strong> Spring Integration</a></li><li class="chapter-item "><a href="chapter_9/SpringOthers.html"><strong aria-hidden="true">11.12.</strong> Spring Others</a></li><li class="chapter-item "><a href="chapter_9/Book.html"><strong aria-hidden="true">11.13.</strong> Book</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_9/mybook/spring-in-action-4th.html"><strong aria-hidden="true">11.13.1.</strong> Spring实战第四版</a></li><li class="chapter-item "><a href="chapter_9/mybook/springboot-internals.html"><strong aria-hidden="true">11.13.2.</strong> SpringBoot解密</a></li></ol></li></ol></li><li class="chapter-item "><a href="chapter_10/toc.html"><strong aria-hidden="true">12.</strong> KVStore</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_10/Redis.html"><strong aria-hidden="true">12.1.</strong> Redis</a></li><li class="chapter-item "><a href="chapter_10/MapDB.html"><strong aria-hidden="true">12.2.</strong> MapDB</a></li></ol></li><li class="chapter-item "><a href="chapter_11/toc.html"><strong aria-hidden="true">13.</strong> 分布式事务</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_11/atomikos.html"><strong aria-hidden="true">13.1.</strong> atomikos</a></li><li class="chapter-item "><a href="chapter_11/seata.html"><strong aria-hidden="true">13.2.</strong> seata</a></li><li class="chapter-item "><a href="chapter_11/Book.html"><strong aria-hidden="true">13.3.</strong> Book</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_11/mybook/deeping-in-dtx.html"><strong aria-hidden="true">13.3.1.</strong> 深入理解分布式事务</a></li><li class="chapter-item "><a href="chapter_11/mybook/seata-in-action.html"><strong aria-hidden="true">13.3.2.</strong> 正本清源分布式事务之Seata</a></li></ol></li></ol></li><li class="chapter-item "><a href="chapter_12/toc.html"><strong aria-hidden="true">14.</strong> Library</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_12/httpcomponents.html"><strong aria-hidden="true">14.1.</strong> Apache-httpcomponents</a></li><li class="chapter-item "><a href="chapter_12/Logback.html"><strong aria-hidden="true">14.2.</strong> Logback</a></li><li class="chapter-item "><a href="chapter_12/poi.html"><strong aria-hidden="true">14.3.</strong> Apache-poi</a></li><li class="chapter-item "><a href="chapter_12/sse.html"><strong aria-hidden="true">14.4.</strong> Server-Sent-Events</a></li><li class="chapter-item "><a href="chapter_12/dom4j.html"><strong aria-hidden="true">14.5.</strong> dom4j</a></li><li class="chapter-item "><a href="chapter_12/lombok.html"><strong aria-hidden="true">14.6.</strong> lombok</a></li><li class="chapter-item "><a href="chapter_12/logstash-logback-encoder.html"><strong aria-hidden="true">14.7.</strong> logstash-logback-encoder</a></li><li class="chapter-item "><a href="chapter_12/jmx.html"><strong aria-hidden="true">14.8.</strong> jmx</a></li><li class="chapter-item "><a href="chapter_12/unit-test.html"><strong aria-hidden="true">14.9.</strong> 单元测试</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_12/unit-test/junit5.html"><strong aria-hidden="true">14.9.1.</strong> junit5</a></li><li class="chapter-item "><a href="chapter_12/unit-test/assertj.html"><strong aria-hidden="true">14.9.2.</strong> assertj</a></li><li class="chapter-item "><a href="chapter_12/unit-test/mockito.html"><strong aria-hidden="true">14.9.3.</strong> mockito</a></li><li class="chapter-item "><a href="chapter_12/unit-test/jacoco.html"><strong aria-hidden="true">14.9.4.</strong> jacoco</a></li></ol></li><li class="chapter-item "><a href="chapter_12/Book.html"><strong aria-hidden="true">14.10.</strong> Book</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_12/mybook/effective-unit-testing.html"><strong aria-hidden="true">14.10.1.</strong> 有效的单元测试</a></li></ol></li></ol></li><li class="chapter-item "><a href="chapter_13/toc.html"><strong aria-hidden="true">15.</strong> Database</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_13/mysql.html"><strong aria-hidden="true">15.1.</strong> MySQL</a></li><li class="chapter-item "><a href="chapter_13/canal.html"><strong aria-hidden="true">15.2.</strong> Canal</a></li><li class="chapter-item "><a href="chapter_13/Doris.html"><strong aria-hidden="true">15.3.</strong> Doris</a></li></ol></li><li class="chapter-item "><a href="chapter_14/toc.html"><strong aria-hidden="true">16.</strong> 运维</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_14/Tracing.html"><strong aria-hidden="true">16.1.</strong> Tracing</a></li><li class="chapter-item "><a href="chapter_14/Monitoring.html"><strong aria-hidden="true">16.2.</strong> Monitoring</a></li><li class="chapter-item "><a href="chapter_14/Logging.html"><strong aria-hidden="true">16.3.</strong> Logging</a></li><li class="chapter-item "><a href="chapter_14/rancher.html"><strong aria-hidden="true">16.4.</strong> rancher</a></li><li class="chapter-item "><a href="chapter_14/kubernetes.html"><strong aria-hidden="true">16.5.</strong> kubernetes</a></li><li class="chapter-item "><a href="chapter_14/harbor.html"><strong aria-hidden="true">16.6.</strong> harbor</a></li></ol></li><li class="chapter-item "><a href="chapter_15/toc.html"><strong aria-hidden="true">17.</strong> Research</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="chapter_15/aws.html"><strong aria-hidden="true">17.1.</strong> aws</a></li><li class="chapter-item "><a href="chapter_15/aliyun.html"><strong aria-hidden="true">17.2.</strong> aliyun</a></li><li class="chapter-item "><a href="chapter_15/Replication.html"><strong aria-hidden="true">17.3.</strong> Replication</a></li><li class="chapter-item "><a href="chapter_15/Partitioning.html"><strong aria-hidden="true">17.4.</strong> Partitioning</a></li><li class="chapter-item "><a href="chapter_15/StorageEngine.html"><strong aria-hidden="true">17.5.</strong> StorageEngine</a></li><li class="chapter-item "><a href="chapter_15/Network-partition.html"><strong aria-hidden="true">17.6.</strong> Network Partition</a></li><li class="chapter-item "><a href="chapter_15/Transaction.html"><strong aria-hidden="true">17.7.</strong> Transaction</a></li><li class="chapter-item "><a href="chapter_15/Index.html"><strong aria-hidden="true">17.8.</strong> Index</a></li><li class="chapter-item "><a href="chapter_15/ResiliencyPatterns.html"><strong aria-hidden="true">17.9.</strong> ResiliencyPatterns</a></li><li class="chapter-item "><a href="chapter_15/ServiceRegistry.html"><strong aria-hidden="true">17.10.</strong> ServiceRegistry</a></li><li class="chapter-item "><a href="chapter_15/Person.html"><strong aria-hidden="true">17.11.</strong> Person</a></li></ol></li><li class="chapter-item "><a href="tech-sharing/toc.html"><strong aria-hidden="true">18.</strong> 技术分享</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="tech-sharing/Akka-Classic-Cluster.html"><strong aria-hidden="true">18.1.</strong> Akka Classic Cluster</a></li></ol></li><li class="chapter-item "><a href="reference/reference.html"><strong aria-hidden="true">19.</strong> 参考资料</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="reference/reference.html"><strong aria-hidden="true">19.1.</strong> 参考资料</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">技术架构学习</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/alongsoCJR/tech-learning" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <div style="break-before: page; page-break-before: always;"></div><h1 id="简介"><a class="header" href="#简介">简介</a></h1>
+<p>我的技术笔记</p>
+<p>Inspired by <a href="https://lvt4j.51vip.biz/confluence/#all-updates"><strong>lvt4j</strong></a> and reference from.</p>
+<p>基础学习: 通读官方文档，熟悉API.</p>
+<p>拔高学习: 源码核心设计，接口，机制，流程，抽象等.</p>
+<h2 id="技术关键字"><a class="header" href="#技术关键字">技术关键字</a></h2>
+<p>Akka:Reactive Architecture</p>
+<p>Kafka:Streaming Processing Platform</p>
+<p>SMACK:Spark/Mesos/Akka/Cassandra/Kafka</p>
+<h2 id="学习进度"><a class="header" href="#学习进度">学习进度</a></h2>
+<table><thead><tr><th>技术</th><th>进度</th></tr></thead><tbody>
+<tr><td>Akka</td><td>https://doc.akka.io/docs/akka/current/mailboxes.html</td></tr>
+<tr><td>Es</td><td>https://www.elastic.co/guide/cn/elasticsearch/guide/current/full-text-search.html</td></tr>
+<tr><td>Kafka</td><td>https://developer.confluent.io/patterns/</td></tr>
+<tr><td>Spring</td><td>https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-autowire</td></tr>
+</tbody></table>
+<h2 id="技术栈"><a class="header" href="#技术栈">技术栈</a></h2>
+<table><thead><tr><th align="left">后端</th><th>前端</th><th>程度</th></tr></thead><tbody>
+<tr><td align="left"><a href="https://projects.spring.io/spring-boot">Spring-Boot</a> ，<a href="https://codecentric.github.io/spring-boot-admin/">Spring-Boot-Admin</a><br /><a href="https://spring.io/projects/spring-cloud">Spring-Cloud</a>【<a href="https://cloud.spring.io/spring-cloud-consul/reference/html/">Spring Cloud Consul</a> ，<a href="https://cloud.spring.io/spring-cloud-config/reference/html/">Spring Cloud Config</a>，<a href="https://spring.io/projects/spring-cloud-gateway">Spring Cloud Gateway</a>，<a href="https://spring.io/projects/spring-cloud-openfeign">Spring Cloud OpenFeign</a>】<br /><a href="http://www.mybatis.org/mybatis-3/zh/index.html">Mybatis</a> ，<a href="https://baomidou.com/guide/">MyBatisPlus </a>，<a href="http://mybatis.org/spring/">Mybatis-spring</a> <a href="https://github.com/google/guava">guava(google的java编码工具包)</a> <a href="https://projectlombok.org/">lombok(简化java代码)</a> <a href="https://github.com/lvq410/LVT4J-RBAC">lvt4j-rbac(可视化rbac模型权限控制服务)</a> <a href="https://github.com/logstash/logstash-logback-encoder">logstash-logback-encoder</a>，<a href="https://gradle.org/">Gradle</a> ,<a href="http://velocity.apache.org/">Velocity(Java模板引擎)</a></td><td>html/js/css jQuery <a href="http://www.bootcss.com/">Bootstrap</a> <a href="http://ace.jeka.by/elements.html">ace(常见的后台系统开发控件集)</a> <a href="https://github.com/bopoda/ace">ace组件代码</a> <a href="https://github.com/huangbh/jstpl">jstpl(一个前端模板渲染引擎)</a> <a href="https://lvq410.github.io/LVT4JS/docs/index.html">lvt4js(js工具总结)</a></td><td>必备</td></tr>
+<tr><td align="left"><a href="https://redis.io/">Redis</a> <a href="https://www.elastic.co/">ElasticSearch</a> <a href="http://kafka.apache.org/">kafka</a></td><td><a href="http://jqueryui.com/">jQuery-ui</a> <a href="https://github.com/trentrichardson/jQuery-Timepicker-Addon">jQuery-ui-datetimepicker</a> <a href="https://select2.github.io/">select2</a> <a href="http://www.uploadify.com/">uploadify(基于H5的文件上传插件)</a> <a href="https://mathjs.org/">math(js精度处理)</a> <a href="https://github.com/underovsky/jquery-tagsinput-revisited">jquery.tagsinput-revisited.js</a></td><td>精通</td></tr>
+<tr><td align="left"><a href="https://www.atomikos.com/">atomikos(分布式数据库事务集成管理)</a> <a href="https://javaee.github.io/javamail/">javamail</a> <a href="http://www.sauronsoftware.it/projects/jave">jave(java集成FFmpeg的视频工具)</a> <a href="http://www.mapdb.org/">mapdb(基于磁盘的嵌入式java集合对象存储)</a> <a href="http://hc.apache.org/">httpcomponents(http请求工具)</a> <a href="https://dom4j.github.io/">dom4j(java的xml解析)</a> <a href="https://poi.apache.org/">poi(java版office文档生成处理)</a> <a href="https://github.com/alibaba/canal">canal(阿里的数据库监听)</a> <a href="https://akka.io/">akka(分布式异步编程框架)</a> <a href="https://hazelcast.org/imdg/why/">hazelcast(分布式内存数据网格)</a> <a href="http://seata.io/en-us/">seata(阿里分布式事务框架)</a>，<a href="https://www.consul.io/">Consul(HashiCorp的网络工具，提供服务发现和服务网格）</a><br />单元测试：<a href="https://junit.org/junit4/">junit4</a>/<a href="https://junit.org/junit5/docs/current/user-guide/">junit5</a>，<a href="https://assertj.github.io/doc/">assertj</a>，<a href="https://site.mockito.org/">mockito</a></td><td><a href="http://www.hcharts.cn/">highcharts(图形图表)</a> <a href="http://fontawesome.io/">fontawesome(矢量图形字体库)</a></td><td>了解</td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="coding"><a class="header" href="#coding">Coding</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="admin"><a class="header" href="#admin">admin</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="common-design"><a class="header" href="#common-design">common-design</a></h1>
+<p>需要给业务层提供通用类库，该以怎么样的方式提供？通常有以下几种方式：</p>
+<p>1.类似于apache common这种模式，应用层调用库。</p>
+<p>2.类似于Spring boot stater+auto-configuration这种模式。</p>
+<p>3.类似于IOC/框架模式/模板(XXXTemplate)/策略(回调)模式，框架调用应用层代码。典型的如JDBCTemplate.</p>
+<p>4.类似于普通Spring模式，提供库，并且暴露配置且提供默认配置，由应用层自定义设置。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="common-elasticsearch"><a class="header" href="#common-elasticsearch">common-elasticsearch</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka"><a class="header" href="#akka">Akka</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lightbend-academy"><a class="header" href="#lightbend-academy">lightbend-academy</a></h1>
+<p>reactive programming vs reactive system vs reactive architecture</p>
+<p>Reactive Programming doesn't mean you have created a Reactive System</p>
+<p>Reactive System: Reactive Microservice</p>
+<p>A system that uses Reactive Programming is not necessarily Reactive.</p>
+<p>Location Transport VS Transport Remoting</p>
+<p>Reactive Architecture：DDD，Lagom</p>
+<p>Reactive Architecture + DDD = same goal</p>
+<p>Many of the guidelines and rules in Domain Driven Design are compatible with those in Reactive Architecture.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka简介"><a class="header" href="#akka简介">Akka简介</a></h1>
+<p>Build powerful reactive, concurrent, and distributed applications more easily</p>
+<p>Akka is a toolkit for building highly concurrent, distributed, and resilient message-driven applications 
+for Java and Scala.</p>
+<h2 id="提供的新架构解决方案"><a class="header" href="#提供的新架构解决方案">提供的新架构，解决方案</a></h2>
+<p>反应式架构，反应式系统，反应式编程</p>
+<h2 id="reactive-systems-architecture"><a class="header" href="#reactive-systems-architecture">Reactive Systems Architecture</a></h2>
+<p>Reactive Architecture：LightBend</p>
+<p>The primary goal of reactive architecture is to provide an
+experience that is responsive under all conditions. </p>
+<p>unresponsive software</p>
+<p>Lightbend=Akka+Play+Lagom</p>
+<p>akka监控：https://www.lightbend.com/blog/akka-monitoring-telemetry</p>
+<h2 id="其他"><a class="header" href="#其他">其他</a></h2>
+<p><a href="http://jonasboner.com/">Lightbend CEO Jonas Boner-blog</a></p>
+<p><a href="https://www.oreilly.com/people/jonas-boner/">Jonas Boner-oreilly</a></p>
+<p>Jonas Boner's Book:
+Reactive Microservices Architecture
+Reactive Microsystems
+The Reactive Principles - Design Principles for Distributed Applications</p>
+<p>foreword—reactive Messaging Patterns with the Actor Model - 《响应式架构》
+foreword—reactive application development - 《反应式应用开发》
+foreword—reactive design patterns - 《反应式设计模型》
+foreword—functional and reactive domain modeling - 《函数响应式领域建模》</p>
+<p>Readlist:
+http://jonasboner.com/books-that-makes-you-think/</p>
+<h2 id="my-repo"><a class="header" href="#my-repo">My Repo</a></h2>
+<p>https://github.com/xiaozhiliaoo/akka-in-action.git</p>
+<p>https://github.com/xiaozhiliaoo/akka-practice</p>
+<p>https://github.com/xiaozhiliaoo/learning-akka.git</p>
+<p>https://github.com/SalmaKhater/Learning-Akka </p>
+<h2 id="使用场景"><a class="header" href="#使用场景">使用场景</a></h2>
+<p>可扩展的分布式内存数据库</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka-actor"><a class="header" href="#akka-actor">Akka Actor</a></h1>
+<h2 id="progress"><a class="header" href="#progress">Progress</a></h2>
+<h2 id="notes"><a class="header" href="#notes">Notes</a></h2>
+<p>tell,do not ask!</p>
+<p>发消息方法：
+tell(fire and forget)
+ask(get response)
+pub/sub</p>
+<p>acotr单线程模型，并发安全</p>
+<p>become 通过行为改变状态</p>
+<p>当actor中出现futrue时候，可以使用pipeline，否则会打破单线程模式</p>
+<p>akka，riak,cassandra</p>
+<p>ActorRef,ActorPath,Actor Selection</p>
+<p>Replace Actor stack behavior vid become/unbecome/FSM</p>
+<p>Actor如果是计数器，那么需要持久化。Stateful Actor</p>
+<p>Sender -&gt; Command -&gt; Actor -&gt; Event -&gt; DB</p>
+<p>线上推荐akka cluster，而不是remote</p>
+<p>Send messages：Tell:fire-forget,Ask:Send-And-Receive-Future</p>
+<p>Forward message: useful when writing actors that work as routers, load-balancers, replicators etc.</p>
+<h2 id="reference"><a class="header" href="#reference">Reference</a></h2>
+<p>https://doc.akka.io/docs/akka/current/actors.html#actor-lifecycle</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka-remoting"><a class="header" href="#akka-remoting">Akka Remoting</a></h1>
+<p>Classic Remoting (Deprecated) -&gt; Typed Artery Remoting</p>
+<p>https://doc.akka.io/docs/akka/current/remoting.html</p>
+<p>akka通信协议，序列化机制是什么？</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka-http"><a class="header" href="#akka-http">Akka Http</a></h1>
+<p>akka-http收http://spray.io/启发</p>
+<p>Akka http = Akka + Akka stream</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka-testkit"><a class="header" href="#akka-testkit">Akka TestKit</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka-stream"><a class="header" href="#akka-stream">Akka Stream</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka-distributed-data"><a class="header" href="#akka-distributed-data">Akka Distributed Data</a></h1>
+<p>多点写入冲突解决：
+具有中央节点的数据修改，也涉及CRDT，因为时间有先后，但是最终选哪一个也是问题。多节点更新，然后节点同步达到一致性时候，会有冲突。</p>
+<p>除非所有写入本身就存储在一个中央节点，</p>
+<p>akka生态至少把akka项目看完，lightbend生态</p>
+<h2 id="core"><a class="header" href="#core">core</a></h2>
+<p>convergent(收敛)</p>
+<p>集群中节点间复制简单的会话信息。ORSet Observer Remove Set</p>
+<h2 id="related"><a class="header" href="#related">Related</a></h2>
+<p>https://github.com/lmdbjava/lmdbjava/wiki</p>
+<p>paper: <a href="https://arxiv.org/abs/1603.01529">Delta State Replicated Data Types</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka-cluster"><a class="header" href="#akka-cluster">Akka Cluster</a></h1>
+<h2 id="学习进度-1"><a class="header" href="#学习进度-1">学习进度</a></h2>
+<p>https://doc.akka.io/docs/akka/current/typed/cluster.html#</p>
+<h2 id="笔记"><a class="header" href="#笔记">笔记</a></h2>
+<p>application membership(heartbeat, gossip)</p>
+<p>CAP:</p>
+<p>available(pick up consistency):membership,distributed data,pubsub,multi-dc support
+consistency:singleton,sharding,leases</p>
+<p>stateful applications</p>
+<p>集群单例生成唯一用户ID</p>
+<p>Akka Persistent + Akka Singleton 生成唯一用户ID</p>
+<p>计算集群总请求数。</p>
+<p>发现资源不够，会自动扩展actor来处理任务，资源充足，会减少actor来处理任务</p>
+<p>全局状态：集群单例actor实现</p>
+<p>actor中有阻塞操作该怎么办？</p>
+<p>如果一个分片挂了，那么akka cluster shard是如何处理任务的？</p>
+<p>集群路由感知器比集群单例更通用的构造。一个actor可以将任务推给多个worker.</p>
+<p>Classic Cluster Aware Router:https://doc.akka.io/docs/akka/current/cluster-routing.html</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka-persistence"><a class="header" href="#akka-persistence">Akka Persistence</a></h1>
+<p>Classic Persistence:https://doc.akka.io/docs/akka/current/persistence.html#at-least-once-delivery</p>
+<h2 id="notes-1"><a class="header" href="#notes-1">Notes</a></h2>
+<p>https://github.com/dnemov/akka-persistence-jdbc/blob/master/src/main/resources/schema/mysql/mysql-schema.sql</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka-utilities"><a class="header" href="#akka-utilities">Akka Utilities</a></h1>
+<h2 id="熔断器"><a class="header" href="#熔断器">熔断器</a></h2>
+<p>https://doc.akka.io/docs/akka/current/common/circuitbreaker.html</p>
+<p>let it crash. 从奔溃中恢复才是弹性系统应该具备的能力。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="book"><a class="header" href="#book">Book</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka实战"><a class="header" href="#akka实战">Akka实战</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka入门与实践"><a class="header" href="#akka入门与实践">Akka入门与实践</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka应用模式"><a class="header" href="#akka应用模式">Akka应用模式</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="反应式设计模式"><a class="header" href="#反应式设计模式">反应式设计模式</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="反应式应用开发"><a class="header" href="#反应式应用开发">反应式应用开发</a></h1>
+<h2 id="progress-1"><a class="header" href="#progress-1">Progress</a></h2>
+<h2 id="notes-2"><a class="header" href="#notes-2">Notes</a></h2>
+<p>Akka的actor模型中，并没有提供因果一致性，因此落在了开发人员，需要通过Process Manager模式完成Become/Unbecome实现因果一致性。</p>
+<p>反应式架构默认是分布式的。</p>
+<p>Akka分片：跨集群中多个节点自动分布具有标识符的actor.</p>
+<h2 id="question"><a class="header" href="#question">Question</a></h2>
+<p>消息，命令，事件区别？</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hazelcast"><a class="header" href="#hazelcast">Hazelcast</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="consul简介"><a class="header" href="#consul简介">Consul简介</a></h1>
+<p>Consul is a service mesh solution providing a full featured control plane with service discovery, configuration, 
+and segmentation functionality. </p>
+<p>Hashicorp：delivers consistent workflows to provision, secure, connect, and run any infrastructure for any application.</p>
+<h2 id="提供的新架构解决方案-1"><a class="header" href="#提供的新架构解决方案-1">提供的新架构，解决方案</a></h2>
+<h2 id="faq"><a class="header" href="#faq">FAQ</a></h2>
+<p>线上容器里面是怎么连上的consul？</p>
+<p>consul使用模式？线上部署模式？教务总共三个node，service全部在node上，其他电商的node就是service.</p>
+<p>service -&gt; consul client(3 pod) -&gt; consul server()</p>
+<p>Consul Agent，Server，Client，Consul cluster，</p>
+<h2 id="using-lib"><a class="header" href="#using-lib">Using Lib</a></h2>
+<p><a href="https://github.com/hashicorp/go-memdb">memdb</a></p>
+<p><a href="https://github.com/boltdb/bolt">bolt</a></p>
+<p><a href="https://www.serf.io/">serf</a></p>
+<p>https://github.com/Ecwid/consul-api</p>
+<h2 id="paper"><a class="header" href="#paper">Paper</a></h2>
+<ul>
+<li>
+<p><a href="https://www.cs.cornell.edu/projects/Quicksilver/public_pdfs/SWIM.pdf">SWIM:Scalable Weakly-consistent Infection-style Process Group Membership Protocol</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1707.00788">Lifeguard:Local Health Awareness for More Accurate Failure Detection</a></p>
+</li>
+<li>
+<p><a href="https://sites.cs.ucsb.edu/%7Eravenben/classes/276/papers/vivaldi-sigcomm04.pdf">Vivaldi:A Decentralized Network Coordinate System</a></p>
+<ul>
+<li><a href="https://www.seltzer.com/assets/publications/Network-Coordinates-in-the-Wild.pdf">Network Coordinates in the Wild</a></li>
+<li><a href="https://www-users.cse.umn.edu/%7Ezhang089/Papers/Lee-Suitability-tonfinal.pdf">On Suitability of Euclidean Embedding for Host-Based Network Coordinate Systems</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://raft.github.io/raft.pdf">Raft: In search of an Understandable Consensus Algorithm</a></p>
+</li>
+</ul>
+<h2 id="wiki"><a class="header" href="#wiki">Wiki</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Network_tomograph">Network_tomography</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Failure_detector">Failure_detector</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hazelcast-1"><a class="header" href="#hazelcast-1">Hazelcast</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hazelcast简介"><a class="header" href="#hazelcast简介">Hazelcast简介</a></h1>
+<p>Hazelcast is a streaming and memory-first application platform for fast, stateful, data-intensive workloads on-premises, 
+at the edge or as a fully managed cloud service.</p>
+<p>产品有：Hazelcast Management Center，IMDG，Jet</p>
+<h2 id="学习进度-2"><a class="header" href="#学习进度-2">学习进度</a></h2>
+<h2 id="提供的新架构解决方案-2"><a class="header" href="#提供的新架构解决方案-2">提供的新架构，解决方案</a></h2>
+<h2 id="笔记-1"><a class="header" href="#笔记-1">笔记</a></h2>
+<p>HZ核心设计文档：https://github.com/hazelcast/hazelcast/blob/master/docs/design/template.md</p>
+<p>Bridging Between Java 8 Streams and Hazelcast Jet</p>
+<p>In-Memory Storage/In-Memory Compute/Real-Time Processing</p>
+<p>Distributed Data Design(Partitioning and Replication)： 
+AP:Replication(lazy replication), primary-copy, best-effort, no strong consistency but monotonic reads guarantee,
+anti-entropy,at-least-once,
+CP: Consensus algorithms Raft</p>
+<p>嵌入式是否支持”跨应用”发现彼此？</p>
+<p>membership具体细节，如何加入和如何退出，以及数据迁移细节官方文档涉及比较少。</p>
+<p>Build Distributed System</p>
+<p>Core Object：Config,DistributedObject,Node,NodeState,Cluster,HazelcastInstance</p>
+<p>FD:PhiAccrualFailureDetector,PhiAccrualClusterFailureDetector,DeadlineClusterFailureDetector,PingFailureDetector</p>
+<h2 id="starter"><a class="header" href="#starter">Starter</a></h2>
+<p>https://docs.hazelcast.com/hazelcast/5.1/pipelines/spring-boot</p>
+<h2 id="paper-1"><a class="header" href="#paper-1">Paper</a></h2>
+<p><a href="https://www.computer.org/csdl/proceedings-article/srds/2004/22390066/12OmNvT2phv">Phi Accrual Failure Detector</a></p>
+<p><a href="https://dl.acm.org/doi/pdf/10.1145/250007.250010">Group membership and view synchrony in partitionable asynchronous distributed systems: specifications</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cluster"><a class="header" href="#cluster">cluster</a></h1>
+<h2 id="discovery-mechanisms"><a class="header" href="#discovery-mechanisms">Discovery Mechanisms</a></h2>
+<p>Auto Detection:multicast
+TCP/IP
+Cloud Discovery</p>
+<h2 id=""><a class="header" href="#"></a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="distributed-data-structures"><a class="header" href="#distributed-data-structures">Distributed Data Structures</a></h1>
+<p>数据结构选择依据：1 是否partitioned 2 AP or CP保证</p>
+<p>AP：</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="jackson"><a class="header" href="#jackson">Jackson</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="jackson简介"><a class="header" href="#jackson简介">Jackson简介</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="elasticstack"><a class="header" href="#elasticstack">ElasticStack</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="elasticsearch"><a class="header" href="#elasticsearch">ElasticSearch</a></h1>
+<h2 id="学习进度-3"><a class="header" href="#学习进度-3">学习进度</a></h2>
+<p>看到这里了：https://www.elastic.co/guide/cn/elasticsearch/guide/current/_preventing_combinatorial_explosions.html</p>
+<h2 id="笔记-2"><a class="header" href="#笔记-2">笔记</a></h2>
+<p><a href="https://www.elastic.co/about/history-of-elasticsearch">es历史</a></p>
+<p><a href="https://www.elastic.co/blog/author/shay-banon">shay banon</a></p>
+<p>Near Real Time</p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html">节点类型</a></p>
+<p>打分机制：从TF-IDF改成BM25，也叫<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html">similarity</a> ，scoring，ranking</p>
+<p>oversharding问题,如何创建分片数？</p>
+<p>如何知道数据在集群中的哪个节点？</p>
+<p>es和mysql数据模型区别？</p>
+<p>结构化搜索和全文搜索</p>
+<p>全文搜索：传统数据库确实很难搞定的任务，传统数据库要么匹配，要么不匹配，es有相关性打分。</p>
+<p>PB级别，数百台服务器</p>
+<p>一个分片是一个 Lucene 的实例，以及它本身就是一个完整的搜索引擎</p>
+<p>每个字段的所有数据都是默认被索引的</p>
+<p>index是逻辑概念，面向用户，shard是物理概念，面向机器，应用程序关心索引，而不是分片</p>
+<p>Elasticsearch中文档是不可改变的，不能修改它们，在内部，Elasticsearch 已将旧文档标记为已删除，并增加一个全新的文档，并且会重新进行索引。</p>
+<p>更新文档：标记删除，创建文档，重新索引，检索-修改-重建索引</p>
+<p>文档中的每个字段都将被索引并且可以被查询</p>
+<p>在分布式系统中深度分页:在分布式系统中，对结果排序的成本随分页的深度成指数上升</p>
+<p>filed:精确值，全文值</p>
+<p>很少对全文类型的域做精确匹配</p>
+<p>Doc Values:排序，聚合，脚本计算
+Invert Index:检索</p>
+<p>文档的唯一性：index，type，routing value</p>
+<p>检索过程：query then fetch 先查后取
+分片节点：from+size
+协调节点：numberOfShard * (from+size)</p>
+<p>scroll 查询禁用排序</p>
+<p>搜索类型：query then fetch，dfs_query_then_fetch</p>
+<p>深度分页的代价根源是结果集全局排序，如果去掉全局排序的特性的话查询结果的成本就会很低。</p>
+<p>Data Replication:Primary-Backup</p>
+<p>in-sync shard（可以被选中为primary的shard）</p>
+<p>index配置最重要的是：number_of_shards(创建后更改不了)，number_of_replicas(创建后可以修改)</p>
+<p>_id 和 _index 字段则既没有被索引也没有被存储，这意味着它们并不是真实存在的。</p>
+<p>不能添加新的分析器或者对现有的字段做改动。 如果你那么做的话，结果就是那些已经被索引的数据就不正确， 搜索也不能正常工作。reindex</p>
+<p>修改索引类型：https://www.elastic.co/guide/cn/elasticsearch/guide/current/index-aliases.html</p>
+<p>应用中使用索引别名，而不是索引真实名字。这样在修改索引时候，应用层不需要变化。</p>
+<p>全文检索=全字段索引</p>
+<p>倒排索引被写入磁盘后是 不可改变 的
+在保留不变性的前提下实现倒排索引的更新？答案是: 用更多的索引。</p>
+<p>一个 Lucene 索引包含一个提交点和三个段</p>
+<p>一个 Lucene 索引 我们在 Elasticsearch 称作 分片 。 一个 Elasticsearch 索引 是分片的集合</p>
+<p>段是不可改变的</p>
+<p>内存索引缓冲区</p>
+<p>按段搜索</p>
+<p>写入和打开一个新段的轻量的过程叫做 refresh，每1s refresh下</p>
+<p>Elasticsearch是近实时搜索: 文档的变化并不是立即对搜索可见，但会在一秒之内变为可见</p>
+<p>Flush：执行一个提交并且截断 translog 的行为在 Elasticsearch 被称作一次 flush，30分钟一次。
+Flush之后段被全量提交，并且事务日志被清空</p>
+<p>减少段的数量（通常减少到一个），来提升搜索性能。</p>
+<p>结构化搜索：要么在，要么不在，和打分机制无关系。也就是和相似度无关。</p>
+<p>精确值查找时候，需要用filter，不会被打分，会被缓存。</p>
+<p>尽可能多的使用过滤式查询。</p>
+<p>constant_score(常量评分查询) 将 term 查询转化成为过滤器。</p>
+<p>term查询转成constant_score查询。（非评分查询）</p>
+<p>非评分计算是首先执行的，这将有助于写出高效又快速的搜索请求。</p>
+<p>bool过滤器，也叫复合过滤器。</p>
+<p>查看索引别名：GET /finance_netease_settle_order/_alias</p>
+<p>布尔过滤器可以用来作为构造复杂逻辑条件的基本构建模块。</p>
+<p>term 和 terms 是 包含（contains） 操作，而非 等值（equals）</p>
+<p>查询优化：普通查询 -&gt; bool filter -&gt; constant_score filter</p>
+<p>exists(!=null),missing(==null)查询</p>
+<p>filter query 实现bitset的roraing bitmap</p>
+<p>bool match查询</p>
+<p>多数字符串字段都是 not_analyzed 精确值字段</p>
+<p>dfs_query_then_fetch： dfs是指分布式频率搜索（Distributed Frequency Search） ， 它告诉 Elasticsearch ，
+先分别获得每个分片本地的 IDF ，然后根据结果再计算整个索引的全局 IDF 。</p>
+<p>多字段搜索：bool match查询</p>
+<p>dis_max：分离最大化查询（Disjunction Max Query)</p>
+<p>全文搜索被称作是 召回率（Recall） 与 精确率（Precision） 的战场
+召回率 ——返回所有的相关文档； 
+精确率 ——不返回无关文档</p>
+<p>TF/IDF</p>
+<p>字段中心式（term-centric）查询：best_fields 和 most_fields
+词中心式（term-centric）的查询：cross_fields</p>
+<p>自定义单字段查询是否能够优于多字段查询，取决于在多字段查询与单字段自定义 _all 之间代价的权衡，
+即哪种解决方案会带来更大的性能优化就选择哪一种。</p>
+<p>multi_match 查询中避免使用 not_analyzed 字段。</p>
+<p>短语匹配(match_phrase查询)</p>
+<p>http://people.apache.org/~mikemccand/lucenebench/</p>
+<p>unigrams ,bigrams(shingles)，trigrams，</p>
+<p>shingles 不仅比短语查询更灵活，而且性能也更好。 shingles 查询跟一个简单的 match 查询一样高效，而不用每次搜索花费短语查询的代价。</p>
+<p>prefix 查询不做相关度评分计算，它只是将所有匹配的文档返回，并为每条结果赋予评分值 1 。它的行为更像是过滤器而不是查询。</p>
+<p>search-as-you-type：match_phrase_prefix</p>
+<p>Boolean Model:只是在查询中使用 AND 、 OR 和 NOT</p>
+<p>Lucene 使用 布尔模型（Boolean model） 、 TF/IDF 以及 向量空间模型（vector space model） ，然后将它们组合到单个高效的包里以收集匹配文档并进行评分计算。</p>
+<p>bool 查询实现了布尔模型</p>
+<p>查询时的权重提升 是可以用来影响相关度的主要工具</p>
+<p>constant_score 和 function_score区别？</p>
+<p>一致随机评分（consistently random scoring） </p>
+<p>similarity算法：BM25，TF-IDF</p>
+<p>全文搜索是一场 查准率 与 查全率 之间的较量—查准率即尽量返回较少的无关文档，而查全率则尽量返回较多的相关文档。</p>
+<p>es多字段，可对字段建立两次索引。文本做两次索引</p>
+<p>stem 词干 stemmer  词干提取器</p>
+<p>多语言设计：index-per-language， field-per-language </p>
+<p>Elasticsearch 为什么不能在 analyzed （分析过）的字符串字段上排序，并演示了如何为同一个域创建 复数域索引 ，
+其中analyzed域用来搜索，not_analyzed域用来排序。</p>
+<p>Analyzed 域无法排序并不是因为使用了分析器，而是因为分析器将字符串拆分成了很多词汇单元，就像一个 词汇袋 ，
+所以 Elasticsearch 不知道使用那一个词汇单元排序。</p>
+<p>analyzed name域用来搜索。
+not_analyzed name.raw 域用来排序。</p>
+<p>International Components for Unicode (ICU) </p>
+<p>单词还原成词根。比如foxes还原成fox.</p>
+<h2 id="internals"><a class="header" href="#internals">Internals</a></h2>
+<p>https://www.elastic.co/blog/found-elasticsearch-internals
+https://www.elastic.co/blog/found-elasticsearch-networking</p>
+<h2 id="遇到问题"><a class="header" href="#遇到问题">遇到问题</a></h2>
+<p>1.forbidden-12-index-read-only-allow-delete-api?</p>
+<p>某个节点的磁盘满了，需要运维清理下磁盘</p>
+<h2 id="course"><a class="header" href="#course">Course</a></h2>
+<p>https://github.com/xiaozhiliaoo/geektime-ELK</p>
+<p>https://github.com/xiaozhiliaoo/search-practice</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="logstash"><a class="header" href="#logstash">LogStash</a></h1>
+<h2 id="笔记-3"><a class="header" href="#笔记-3">笔记</a></h2>
+<p><a href="https://www.elastic.co/blog/author/jordan-sissel">Jordan Sissel</a></p>
+<p><a href="https://www.elastic.co/guide/en/logstash/current/persistent-queues.html">persistent queues</a></p>
+<p><a href="https://www.elastic.co/guide/en/logstash/current/dead-letter-queues.html">Dead Letter Queue</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kibana"><a class="header" href="#kibana">kibana</a></h1>
+<h2 id="笔记-4"><a class="header" href="#笔记-4">笔记</a></h2>
+<p><a href="https://www.elastic.co/blog/author/rashid-khan">Rashid Khan</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="beat"><a class="header" href="#beat">beat</a></h1>
+<h2 id="reference-1"><a class="header" href="#reference-1">reference</a></h2>
+<p>https://www.elastic.co/guide/en/beats/libbeat/8.0/beats-reference.html</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lucene"><a class="header" href="#lucene">Lucene</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="book-1"><a class="header" href="#book-1">Book</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="elasticsearch权威指南"><a class="header" href="#elasticsearch权威指南">Elasticsearch权威指南</a></h1>
+<h2 id="progress-2"><a class="header" href="#progress-2">Progress</a></h2>
+<p>100%</p>
+<h2 id="notes-3"><a class="header" href="#notes-3">Notes</a></h2>
+<p>Elasticsearch: The Definitive Guide: A Distributed Real-Time Search and Analytics Engine 1st Edition</p>
+<p>TF-IDF:词频/逆向文档频率</p>
+<p>es两个阶段：索引和查询</p>
+<p>stemmer:词干提取器</p>
+<p>synonyms：同义词</p>
+<p>字典词干提取器，算法化词干提取器</p>
+<p>实践中一个好的算法化词干提取器一般优于一个字典词干提取器。</p>
+<p>Hunspell 词干提取器（拼写检查）</p>
+<p>保留停用词最大的缺点就影响搜索性能。</p>
+<p>索引结构：Terms dictionary，Postings list，Term frequency，Positions，Offsets，Norms</p>
+<p>common_grams 过滤器是针对短语查询能更高效的使用停用词而设计的。</p>
+<p>Fuzzy matching 允许查询时匹配错误拼写的单词。原理是编辑距离</p>
+<p>fuzzy 查询的工作原理是给定原始词项及构造一个 编辑自动机— 像表示所有原始字符串指定编辑距离的字符串的一个大图表。</p>
+<p>聚合=bucket+metrics
+bucket=group by metrics=count,sum,max...</p>
+<p>&lt;国家, 性别, 年龄&gt; 组合的平均薪酬。所有的这些都在一个请求内完成并且只遍历一次数据.</p>
+<p>直方图聚合：histogram，date_histogram</p>
+<p>例子基础数据
+POST /cars/transactions/_bulk
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 10000, &quot;color&quot; : &quot;red&quot;, &quot;make&quot; : &quot;honda&quot;, &quot;sold&quot; : &quot;2014-10-28&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 20000, &quot;color&quot; : &quot;red&quot;, &quot;make&quot; : &quot;honda&quot;, &quot;sold&quot; : &quot;2014-11-05&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 30000, &quot;color&quot; : &quot;green&quot;, &quot;make&quot; : &quot;ford&quot;, &quot;sold&quot; : &quot;2014-05-18&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 15000, &quot;color&quot; : &quot;blue&quot;, &quot;make&quot; : &quot;toyota&quot;, &quot;sold&quot; : &quot;2014-07-02&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 12000, &quot;color&quot; : &quot;green&quot;, &quot;make&quot; : &quot;toyota&quot;, &quot;sold&quot; : &quot;2014-08-19&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 20000, &quot;color&quot; : &quot;red&quot;, &quot;make&quot; : &quot;honda&quot;, &quot;sold&quot; : &quot;2014-11-05&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 80000, &quot;color&quot; : &quot;red&quot;, &quot;make&quot; : &quot;bmw&quot;, &quot;sold&quot; : &quot;2014-01-01&quot; }</p>
+<p>聚合是在查询范围内的，但有时我们也想要搜索它的子集，而聚合的对象却是所有数据：全局桶</p>
+<p>聚合结果过滤：过滤桶</p>
+<p>只过滤搜索结果，不过滤聚合结果：post_filter</p>
+<p>Approximate Aggregations（近似聚合）：cardinality（HyperLogLog），percentiles（TDigest-https://github.com/tdunning/t-digest） </p>
+<p>max是精确聚合，count(DISTINCT)是近似聚合</p>
+<p>big data, exactness, and real-time latency.</p>
+<p>精确+实时：数据可以存入单台机器的内存之中，我们可以随心所欲，使用任何想用的算法。结果会 100% 精确，响应会相对快速。
+大数据+精确：传统的 Hadoop。可以处理 PB 级的数据并且为我们提供精确的答案，但它可能需要几周的时间才能为我们提供这个答案。
+大数据+实时：近似算法为我们提供准确但不精确的结果。</p>
+<p>聚合实现：DocValues</p>
+<p>Doc values 的存在是因为倒排索引只对某些操作是高效的。 倒排索引的优势在于查找包含某个项的文档，而对于从另外一个方向的相反操作并不高效，即：确定哪些项是否存在单个文档里
+搜索使用倒排索引查找文档，聚合操作收集和聚合 doc values 里的数据。
+Doc Values 本质上是一个序列化的列式存储。列式存储 适用于聚合、排序、脚本等操作
+Doc values 不支持 analyzed 字符串字段。聚合运行在 not_analyzed 字符串而不是 analyzed 字符串，这样可以有效的利用 doc values </p>
+<p>聚合一个分析字符串：fielddata </p>
+<p>terms 桶基于我们的数据动态构建桶；它并不知道到底生成了多少桶。 大多数时候对单个字段的聚合查询还是非常快的， 但是当需要同时聚合多个字段时，就可能会
+产生大量的分组，最终结果就是占用 es 大量内存，从而导致 OOM 的情况发生。</p>
+<p>聚合模式：DFS(默认)，BFS</p>
+<p>广度优先仅仅适用于每个组的聚合数量远远小于当前总组数的情况下，因为广度优先会在内存中缓存裁剪后的仅仅需要缓存的每个组的所有数据，
+以便于它的子聚合分组查询可以复用上级聚合的数据。</p>
+<p>对单个文件的变更是ACID的，但包含多个文档的变更不支持。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="elasticsearch实战"><a class="header" href="#elasticsearch实战">Elasticsearch实战</a></h1>
+<h2 id="progress-3"><a class="header" href="#progress-3">Progress</a></h2>
+<p>P47</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="深入理解elasticsearch原书第三版"><a class="header" href="#深入理解elasticsearch原书第三版">深入理解Elasticsearch(原书第三版)</a></h1>
+<h2 id="进度"><a class="header" href="#进度">进度</a></h2>
+<p>阅读完成</p>
+<h2 id="notes-4"><a class="header" href="#notes-4">Notes</a></h2>
+<p>prefix-query不会被分析，match query会被分析</p>
+<p>es1.0多播发现机制，2.0单播默认发现机制。zen discovery</p>
+<p>ingest等价于java版logstash节点</p>
+<p>shrink api 索引收缩</p>
+<p>查询数据：查询，过滤器</p>
+<p>normalization 归一化</p>
+<p>BM25和TF-IDF</p>
+<p>es当作NOSQL，无分析查询会更好。也即精确查询。</p>
+<p>基本查询：match,multi_match,common,fuzzy_like_this,fuzzy_like_this_field,geoshape,ids,match_all,query_string,simple_query_string
+range,prefix,regex,span_term,term,terms,wildcard</p>
+<p>组合查询：bool,boosting,constant_score,dis_max,filtered,function_score,has_child,has_parent,indices,nested,span_first,span_multi,
+span_near,span_not,span_or,span_term,top_children</p>
+<p>无分析查询：term，terms,common,ids,prefix,span_term,wildcard</p>
+<p>全文检索：match,multi_match,query_string,simple_query_string</p>
+<p>模式匹配：prefix,regexp,wildcard</p>
+<p>相似度查询: fuzzy,fuzzy_like_this,fuzzy_like_this_filed,more_like_this,more_like_this_field</p>
+<p>支持修改分数查询：boosting,constant_score,function_score,indices</p>
+<p>位置敏感：match_pjrase,span_first,span_multi,span_near,span_not,span_or,span_term</p>
+<p>结构敏感：nested,has_child,has_parent,top_children</p>
+<p>查询改写：prefix，rewrite参数</p>
+<p>es使用mustache实现查询模板</p>
+<p>multi_match匹配类型：best_fields,most_fields,cross_fields,phrase,phrase_prefix</p>
+<p>es管理关系型提供了：嵌套，父子文档结构</p>
+<p>处理人类语言。</p>
+<p>文档通过路由知道放在哪一个分片上面了。</p>
+<p>集群主节点任务：节点间分配分片。</p>
+<p>分片是一个lucence索引。</p>
+<p>相似度模型（similarity）：TF-IDF，BM25，DFR，DFI，IB，LM Dirichlet,LM JelinekMercer</p>
+<p>store模块：lucene和io子系统的抽象：niofs,simplefs,mmapfs,fs</p>
+<p>Searcher重新打开的过程：refresh，默认1s</p>
+<p>flush：将事务日志同步到lucene index，同时清空事务日志。默认5s</p>
+<p>实时读取：从事务日志中读取。</p>
+<p>段合并耗费性能的操作。</p>
+<p>并发合并调度器：ConcurrentMergeScheduler</p>
+<p>NRT:近实时</p>
+<p>发现模块：选主，发现新节点，形成和发现新节点过程叫发现。
+Zen发现模块单播(unicast)发现集群中其他节点。</p>
+<p>微服务发现是发现别人，但是自己发现不了。</p>
+<p>es恢复过程：加载通过网关模块存储的数据以使得es正常工作。每当集群整体启动时候，恢复过程就会启动，加载所有数据：元数据，映射和全部索引。
+网关模块存储es正常运行的全部数据。</p>
+<p>es可以备份到s3，hdfs，gcs，azure</p>
+<p>ingest处理器，内置23个等。append，convert，grok，fail等等。。。grok自带了120多种grok模式。</p>
+<p>联盟搜索：跨集群搜索，通过部落节点</p>
+<p>部落节点从所有连接的集群中获取集群状态，合并成一个集群状态。</p>
+<p>percolation（过滤），suggester（联想，建议器）</p>
+<p>查询验证 validate api</p>
+<p>查询分析器：profile api</p>
+<p>dfs query then fetch</p>
+<p>发现集群变慢，阻塞等情况时候，可以看到热点线程api，看哪些线程耗费cpu，io等信息 hot_threads </p>
+<p>当数据量够大，查询够复杂时候，就会碰到内存问题，此时增加更多内存也无济于事。</p>
+<p>增加主分片：内存溢出，分片查询时间过长，内存交换，高IO等待等问题
+增加副本分片：流量过高节点无法处理的时候，增加查询能力。</p>
+<p>集群缺少部分节点数据，比完全不响应查询要好。</p>
+<p>防止分片和副本部署在同一个节点，此时失去了高可用能力了。使用awareness能力。</p>
+<p>集群部署：两个聚合节点，n个数据节点，三个候选主节点，冗余3个。设置minimum_master_nodes:2，可以避免脑裂发生。</p>
+<p>索引刷新频率：文档需要多久才能出现在搜索结果里面。默认1s，意味着每1s索引查询器重新打开一次。</p>
+<p>查询：总应该思考最优的查询结构，过滤器使用等。</p>
+<p>不使用路由情况下，es会查询所有分片。如果知道文档在哪一个路由里面，将会提高效率。</p>
+<p>索引只在一个分片上面，查询性能较差，增加副本分片对性能提高无用，需要将索引分为多个分片。把数据平均负载。</p>
+<p>聚合查询：size:最后聚合结果返回多少组数据，shard_size：每个分片返回多少组数据。 降低size和shard_size会让聚合结果不那么准确，但是网络开销小，内存使用低。</p>
+<p>过多的副本会导致索引速度下降。</p>
+<p>es 预写日志WAL，tranlog，get请求获取最新的数据，确保数据持久化，优化lucene index的写入。</p>
+<p>SSD优于HDD</p>
+<p>基于时间的索引管理：shrink和rollover
+shrink api 减少主分片，生成新的索引。只有只读才能收缩。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="elasticsearch源码解析与优化实战"><a class="header" href="#elasticsearch源码解析与优化实战">Elasticsearch源码解析与优化实战</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kafka-todo"><a class="header" href="#kafka-todo">Kafka-TODO</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kafka简介"><a class="header" href="#kafka简介">Kafka简介</a></h1>
+<p>Apache Kafka is an open-source distributed event streaming platform used by thousands of companies for high-performance
+data pipelines, streaming analytics, data integration, and mission-critical applications.</p>
+<p>Confluent: Set Your Data in Motion</p>
+<p>Confluent is creating the foundational platform for data-in-motion</p>
+<h2 id="提供的新架构解决方案-3"><a class="header" href="#提供的新架构解决方案-3">提供的新架构，解决方案</a></h2>
+<p>事件流处理平台</p>
+<p>事件处理</p>
+<h2 id="上次学到这里"><a class="header" href="#上次学到这里">上次学到这里</a></h2>
+<p>Event Streaming Patterns：https://developer.confluent.io/patterns/event/event/</p>
+<p>inside-ksqldb：https://developer.confluent.io/learn-kafka/inside-ksqldb/streaming-architecture/</p>
+<h2 id="笔记-5"><a class="header" href="#笔记-5">笔记</a></h2>
+<h3 id="kafka"><a class="header" href="#kafka">Kafka</a></h3>
+<p>Kafka是事件处理平台，提供了事件存储能力Kafka的Log，事件计算KSQLDB，Kafka Stream。</p>
+<p>Kafka Ecosystem: Kafka,Kafka Stream,Kafka Connect,KSQLDB.</p>
+<p>事件处理中出现了问题，那么Materialize可以是发邮件，也可以是存到存储系统中。</p>
+<p>kafka发送消息是k，v类型的。没发送一个消息，offset+1
+m
+https://developer.confluent.io/learn-kafka/event-sourcing/event-driven-vs-state-based/</p>
+<p>软件设计方法：</p>
+<p>state-based（databases+ synchronous network call）</p>
+<p>event-based（data at rest + data in motion + event sourcing + CQRS + event streaming）</p>
+<p>CRUD：Databases</p>
+<p>CR：Event Sourcing</p>
+<p>Topic：Event：Key:Partition,Schema</p>
+<p>Table：Row：Primary Key,Shard,Schema</p>
+<p>Index：Document：_id,Shard,Mapping</p>
+<p>Collection：Document:DocumentId,Shard,Schema</p>
+<p>Kafka Queue is Log:Append Only and Durable,Reading Message never delete. Other Message is Queue. Message is Bounded
+Buffer can be deleted. Topic is Log. Not Queue. Topic(DLT) is Queue(DLQ).</p>
+<p>same key -&gt; same partition -&gt; in order ,key is null -&gt; round robin ,key is nonull -&gt; hash function</p>
+<p>rewind,reprocess,replayable,reblance,</p>
+<p>consumer group protocol(join+leave)</p>
+<h3 id="kafka-connector"><a class="header" href="#kafka-connector">Kafka Connector</a></h3>
+<p>Consumer+Materialize = Kafka Connect ,Consumer+Stateful = Kafka Stream ,Consumer+Stateless = Kafka Consumer</p>
+<p>数据是流动的处理平台(Kafka)和数据是静止的处理平台(MySQL)</p>
+<p>DLQ:Dead Letter Queue</p>
+<h3 id="kafka-stream"><a class="header" href="#kafka-stream">Kafka Stream</a></h3>
+<p>KTable:Last Updated Value</p>
+<p>Kafka Core: Log+Event</p>
+<p>Kafka Stream = KStream,KTable,Serialization,Joins,Stateful Operations,Windowing,Times,Processor,</p>
+<p>Joins:Stream-Stream(Windows),Stream-Table,Table-Table</p>
+<p>Stateless:filter,map, Stateful(use pre event):group by key,reduce,aggregation(sum,count,avg,max,min),join</p>
+<p>Time Windows: https://kafka.apache.org/30/javadoc/org/apache/kafka/streams/kstream/TimeWindows.html</p>
+<p>Session Windows: https://kafka.apache.org/30/javadoc/org/apache/kafka/streams/kstream/SessionWindows.html</p>
+<p>SlidingWindows: https://kafka.apache.org/30/javadoc/org/apache/kafka/streams/kstream/SlidingWindows.html</p>
+<h3 id="ksqldb"><a class="header" href="#ksqldb">ksqlDB</a></h3>
+<p>ksqlDB:distributed compute layer
+kafka:distributed storage layer</p>
+<p>Streams：unbounded series of event. Table: the current state of event</p>
+<p>Stateful Aggregations (Materialized Views)</p>
+<p>ksqlDB can build a materialized view of state</p>
+<p>Kafka is a database turned inside out</p>
+<h3 id="data-mesh"><a class="header" href="#data-mesh">Data Mesh</a></h3>
+<p>software architecture vs data architecture</p>
+<p>service mesh vs data mesh</p>
+<h2 id="配置"><a class="header" href="#配置">配置</a></h2>
+<h3 id="broker配置"><a class="header" href="#broker配置">broker配置</a></h3>
+<p>default.replication.factor</p>
+<p>unclean.leader.election.enable</p>
+<p>min.insync.replicas</p>
+<h2 id="producer配置"><a class="header" href="#producer配置">producer配置</a></h2>
+<p>acks(0,1,all)</p>
+<p><a href="https://kafka.apache.org/documentation/#producerconfigs_retries">retries</a></p>
+<h2 id="设计"><a class="header" href="#设计">设计</a></h2>
+<p>https://docs.confluent.io/platform/current/kafka/design.html</p>
+<h2 id="实现"><a class="header" href="#实现">实现</a></h2>
+<h2 id="faq-1"><a class="header" href="#faq-1">FAQ</a></h2>
+<p>https://developer.confluent.io/learn/apache-kafka-faqs/</p>
+<h2 id="其他-1"><a class="header" href="#其他-1">其他</a></h2>
+<p><a href="https://www.confluent.io/kafka-vs-pulsar/">Kafka vs. Pulsar vs. RabbitMQ</a></p>
+<p><a href="https://www.confluent.io/blog/apache-flink-apache-kafka-streams-comparison-guideline-users/">Kafka Stream vs Flink</a></p>
+<p>The Streams API in Kafka and Flink are used in both capacities. The main distinction lies in where these applications 
+live — as jobs in a central cluster (Flink), or inside microservices (Streams API).</p>
+<p>The Streams API makes stream processing accessible as an application programming model, that applications built as 
+microservices can avail from, and benefits from Kafka’s core competency —performance, scalability, security, reliability
+and soon, end-to-end exactly-once — due to its tight integration with core abstractions in Kafka. Flink, on the other 
+hand, is a great fit for applications that are deployed in existing clusters and benefit from throughput, latency, event 
+time semantics, savepoints and operational features, exactly-once guarantees for application state, end-to-end
+exactly-once guarantees (except when used with Kafka as a sink today), and batch processing.</p>
+<h2 id="疑问"><a class="header" href="#疑问">疑问</a></h2>
+<p>kafka一个topic多个消费组情况下，broker是怎么管理log的offset的呢，是每一个消费组提交自己的呢，还是共同提交？</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="operations"><a class="header" href="#operations">Operations</a></h1>
+<h2 id="消费者操作"><a class="header" href="#消费者操作">消费者操作</a></h2>
+<h3 id="打印指定偏移量的消费者的消息"><a class="header" href="#打印指定偏移量的消费者的消息">打印指定偏移量的消费者的消息</a></h3>
+<p>./kafka-console-consumer.sh --bootstrap-server brokerIP:brokerPort --topic  yourTopic  --partition 0 --offset 19831988 --property print.key=true --max-messages 1</p>
+<p>其他属性有：
+print.timestamp Set to true to display the timestamp of each message (if available).
+print.key Set to true to display the message key in addition to the value.
+print.offset Set to true to display the message offset in addition to the value.
+print.partition Set to true to display the topic partition a message is consumed from.
+key.separator Specify the delimiter character to use between the message key and message value when
+printing.
+line.separator Specify the delimiter character to use between messages.
+key.deserializer Provide a class name that is used to deserialize the message key before printing.
+value.deserializer Provide a class name that is used to deserialize the message value before printing.</p>
+<h2 id="消费组操作"><a class="header" href="#消费组操作">消费组操作</a></h2>
+<h3 id="查看消费组"><a class="header" href="#查看消费组">查看消费组</a></h3>
+<p>./kafka-consumer-groups.sh --bootstrap-server brokerIP:brokerPort   --describe --group yourGroup</p>
+<h3 id="重置消费者偏移量"><a class="header" href="#重置消费者偏移量">重置消费者偏移量</a></h3>
+<p>./kafka-consumer-groups.sh --bootstrap-server brokerIP:brokerPort  --group yourGroup  --topic yourTopic --reset-offsets --to-offset yourOffset --execute</p>
+<p>./kafka-consumer-groups.sh --bootstrap-server brokerIP:brokerPort  --group yourGroup  --topic yourTopic --reset-offsets -to-latest --execute</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="streaming"><a class="header" href="#streaming">Streaming</a></h1>
+<h2 id="bookmaking-sense-of-stream-processing"><a class="header" href="#bookmaking-sense-of-stream-processing">book:making sense of stream processing</a></h2>
+<p>Data Integration Problem: Log VS Dual Write</p>
+<p>The database is a cache of a subset of the log.</p>
+<p>表：更新流，对事实的更新
+流：事件流，无界事件</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="book-2"><a class="header" href="#book-2">Book</a></h1>
+<h1 id="designing-event-driven-system"><a class="header" href="#designing-event-driven-system">Designing Event-Driven System</a></h1>
+<p>turning the database inside out</p>
+<p>using messaging as system of record</p>
+<h1 id="kafkathe-definitive-guide-second-edition"><a class="header" href="#kafkathe-definitive-guide-second-edition">Kafka:The Definitive Guide Second Edition</a></h1>
+<h1 id="make-sense-of-streaming-processingthe-philosophy-behind-apache-kafka-and-scalable-stream-data-platforms"><a class="header" href="#make-sense-of-streaming-processingthe-philosophy-behind-apache-kafka-and-scalable-stream-data-platforms">Make Sense of Streaming Processing:The Philosophy behind Apache Kafka and Scalable Stream Data Platforms</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kafka权威指南"><a class="header" href="#kafka权威指南">Kafka权威指南</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="apache-kafka实战"><a class="header" href="#apache-kafka实战">Apache Kafka实战</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="深入理解kafka"><a class="header" href="#深入理解kafka">深入理解Kafka</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="apache-kafka源码剖析"><a class="header" href="#apache-kafka源码剖析">Apache Kafka源码剖析</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gradle-todo"><a class="header" href="#gradle-todo">Gradle-TODO</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gradle简介"><a class="header" href="#gradle简介">Gradle简介</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="book-3"><a class="header" href="#book-3">Book</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gradle实战"><a class="header" href="#gradle实战">Gradle实战</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="druid-todo"><a class="header" href="#druid-todo">Druid-TODO</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="druid简介"><a class="header" href="#druid简介">Druid简介</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring"><a class="header" href="#spring">Spring</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-core"><a class="header" href="#spring-core">Spring Core</a></h1>
+<p>container:configuration model + dependency injection</p>
+<p>Lightweight and minimally invasive development with POJOs
+Loose coupling through DI and interface orientation
+Declarative programming through aspects and common conventions
+Eliminating boilerplate code with aspects and templates</p>
+<p>Spring一个包里面的support都是接口的便利实现。</p>
+<h2 id="核心对象"><a class="header" href="#核心对象">核心对象</a></h2>
+<p>BeanWrapper,PropertiesEditor</p>
+<p>BeanFactory,XmlBeanFactory,ListableBeanFactory,DefaultListableBeanFactory </p>
+<p>BeanDefinition</p>
+<p>ApplicationContext,WebApplicationContext,XmlWebApplicationContext</p>
+<p>ContextLoader/ContextLoaderListener/ContextLoaderServlet</p>
+<p>ApplicationContext:ClassPathXmlApplicationContext,FileSystemXmlApplicationContext,GenericGroovyApplicationContext
+最灵活的方式：GenericApplicationContext </p>
+<p>metadata -&gt; bean definition -&gt; bean factory -&gt; applcation context</p>
+<p>xxxTemplate(JDBC,JMS)</p>
+<p>Resource,AbstractResource,ResourceLoader</p>
+<p>BeanDefinitionRegistry,BeanDefinition,</p>
+<p>异常处理：受检成运行，捕获能处理</p>
+<p>Spring源码先看Interface，在看Interface继承关系，在看AbstractInterface</p>
+<p>AbstractInterface里面的protected方法和属性需要注意。没有protected属性，说明不是为了继承而设计的。</p>
+<p>spring aop的实现？</p>
+<p>spring ioc的实现？</p>
+<p>spring 事务的实现？</p>
+<h2 id="ioc"><a class="header" href="#ioc">IOC</a></h2>
+<p>instantiating, configuring, and assembling the beans</p>
+<p>configuration metadata:XML, Java annotations, or Java code</p>
+<p>bean definition:Class,Name,Scope,Constructor arguments,Properties,Autowiring mode,Lazy initialization mode,Initialization method
+,Destruction method</p>
+<p>autowiring collaborators</p>
+<p>FactoryBean 自定义Bean创建
+ProxyFactoryBean 代理包装Bean
+TransactionProxyFactoryBean 事务包装代理</p>
+<p>dependencies are on interfaces or abstract base classes, which allow for stub or mock implementations to be used in unit tests</p>
+<p>uml里面有association和dependency. 而dependency和ioc dependency不一样，ioc dependency是所有有关联的对象，而不在乎对象来自哪里。
+结合起来看，就是依赖注入(IOC)成关联(UML)。</p>
+<p>public class A {</p>
+<p>}</p>
+<p>public class B {</p>
+<p>}</p>
+<p>public class C {
+//此时没有办法注入A，B
+public void doTask(A a,B b){}
+}</p>
+<p>main() {
+C c = new C();
+c.doTask(new A(), new B());
+}</p>
+<p>这个依赖放在了方法上面了，</p>
+<h2 id="aop"><a class="header" href="#aop">AOP</a></h2>
+<p>Aspect：跨多个类的模块化横切点
+Join point：程序执行的地点。
+Advice：程序执行的地方发生的操作。
+Pointcut：满足程序执行地点的条件。
+Introduction：代表类型声明其他方法或字段
+Target object: 被多个Aspect Advice的对象
+AOP proxy:
+Weaving:</p>
+<p>join points matched by pointcuts is the key to AOP</p>
+<p>auto-proxying</p>
+<p>aop is proxy-based frameworks</p>
+<p>动态代理失效： AspectJ does not have this self-invocation issue because it is not a proxy-based AOP framework.</p>
+<p>Pointcut以及实现.</p>
+<p>创建代理方式：
+Dependency on Spring IoC：ProxyFactoryBean是Spring创建代理的Bean，ProxyFactoryBean通过
+Dependency on Programmatically: ProxyFactory
+Dependency on Auto-proxy:BeanNameAutoProxyCreator，DefaultAdvisorAutoProxyCreator</p>
+<p>java代理发展：静态，动态。spring aop框架(可单独使用)
+java依赖管理：手动，spring ioc容器(可单独使用)</p>
+<p>TransactionProxyFactoryBean</p>
+<h2 id="data-access"><a class="header" href="#data-access">Data Access</a></h2>
+<p>JDBC,DAO(二级抽象),ORM(JPA,Hibernate),Spring-Data-JDBC,spring-boot-starter-data-jdbc
+一级(低级别抽象)：一个控制JDBC工作流程和错误处理的框架。 org.springframework.jdbc.core 核心JdbcTemplate
+二级(高级别抽象)：RDBMS操作建模Java对象操作 - org.springframework.jdbc.object 核心RdbmsOperation
+ORM:org.springframework.orm</p>
+<p>mybatis,spring-mybatis,spring-mybatis-starter</p>
+<p>AOP:Advisor=Advice+PointCut</p>
+<h2 id="aop-1"><a class="header" href="#aop-1">AOP</a></h2>
+<p>JavaBean+ProxyFactory=Proxy JavaBean</p>
+<p>JavaBean+ProxyFactory+TransactionInterceptor=Proxy Transaction JavaBean</p>
+<p>JavaBean+TransactionProxyFactoryBean=Proxy Transaction JavaBean</p>
+<h2 id="其他感悟"><a class="header" href="#其他感悟">其他感悟</a></h2>
+<p>Spring从来不用别人接口，都是自己定义接口。</p>
+<p>Spring源码先读接口和实现类，此垂直为类之职责。在读关联，此水平为类之交互。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-webmvc"><a class="header" href="#spring-webmvc">Spring WebMVC</a></h1>
+<h2 id="springweb"><a class="header" href="#springweb">SpringWeb</a></h2>
+<h2 id="springwebmvc"><a class="header" href="#springwebmvc">SpringWebMVC</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-test"><a class="header" href="#spring-test">Spring Test</a></h1>
+<p>https://github.com/xiaozhiliaoo/spring-test-practice</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-boot"><a class="header" href="#spring-boot">Spring Boot</a></h1>
+<p>https://docs.spring.io/spring-boot/docs/current/reference/html/index.html</p>
+<p>看到这里了：https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.spring-boot-applications.spring-mvc-tests</p>
+<h2 id="notes-5"><a class="header" href="#notes-5">Notes</a></h2>
+<h2 id="core-1"><a class="header" href="#core-1">Core</a></h2>
+<p>Convention_over_configuration</p>
+<p>embed，starter，autoconfigure，production-ready features，no code generation</p>
+<h2 id="project-structure"><a class="header" href="#project-structure">Project Structure</a></h2>
+<p>spring-boot-starter-xxx</p>
+<p>spring-boot-xxx-autoconfigure</p>
+<p>spring-boot-xxx</p>
+<p>springboot的结构
+spring-boot-starter
+spring-boot-autoconfigure
+spring-boot</p>
+<p>springboot-test结构
+spring-boot-starter-test(spring-boot-starter)
+spring-boot-test-autoconfigure
+spring-boot-test</p>
+<p>springboot-actuator结构
+spring-boot-starter-actuator(spring-boot-starter)
+spring-boot-actuator-autoconfigure
+spring-boot-actuator</p>
+<h2 id="configuration-metadata"><a class="header" href="#configuration-metadata">Configuration Metadata</a></h2>
+<p>配置</p>
+<h2 id="features"><a class="header" href="#features">Features</a></h2>
+<p>Liveness State
+Readiness StateL</p>
+<p>Spring’s Environment abstraction</p>
+<p>Database版本化管理：MyBatis Migrations，liquibase，flyway</p>
+<p>https://metrics.ryantenney.com/  Spring integration for Dropwizard Metrics</p>
+<h2 id="actuator运维能力"><a class="header" href="#actuator运维能力">Actuator(运维能力)</a></h2>
+<p>文档：https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html</p>
+<p>数据通过http/jmx接口暴露</p>
+<p>spring-boot-actuator</p>
+<p>spring-boot-starter-actuator</p>
+<p>spring-boot-actuator-autoconfigure</p>
+<p>Health:HealthContributor,HealthIndicator</p>
+<p>Information:InfoContributor</p>
+<p>Endpoint：和应用检测和交互的点。提供了很多内置的Endpoint.</p>
+<p>Actuator Web API:https://docs.spring.io/spring-boot/docs/2.6.4/actuator-api/htmlsingle/#overview</p>
+<p>BeansEndpoint,BeansEndpointAutoConfiguration</p>
+<p>Endpoint可以通过Http或者JMX暴露出去，这个是怎么实现的呢？</p>
+<p>dropwizard，micrometer(Spring Boot 2: Migrating From Dropwizard Metrics to Micrometer)</p>
+<h2 id="auto-configuration"><a class="header" href="#auto-configuration">Auto Configuration</a></h2>
+<p>spring-boot-autoconfigure</p>
+<h2 id="疑问-1"><a class="header" href="#疑问-1">疑问：</a></h2>
+<p>starter里面的autoconfigure是怎么配置第三方库的呢？</p>
+<p>mybatis-spring-boot-starter
+mybatis-spring-boot-autoconfigure
+mybatis-spring
+mybatis</p>
+<p>spring的autoconfigure的配置类不在原来库代码里面，这是怎么做到的呢？而common-xxx配置类在库实现里面。
+以上例子是经典例子，
+mybatis-spring配置了mybatis，从而在FactoryBean(Spring)获取SqlSessionFactory(MyBatis),是真实的创建了MyBatis的对象的，
+但是mybatis-spring-boot-autoconfigure配置了mybatis，也创建对象。这就是自动装配。这一步是通过spring.factories文件实现的。</p>
+<p>Spring的配置Bean概念，Configuration（配置的Bean），ConfigurationProperties（配置Bean的属性），autoconfigure指的是自动装配Bean.而在自动
+装配过程中，用到了Properties</p>
+<p>Spring Boot的设计是加载应用级配置，随后再考虑自动配置类。</p>
+<p>单元测试专注于单一组件或组件中的一个方法，此处并不一定要使用Spring。Spring提供了
+一些优势和技术——松耦合、依赖注入和接口驱动设计。这些都简化了单元测试的编写。但Spring
+不用直接涉足单元测试,集成测试会涉及众多组件，这时就需要Spring帮忙了。</p>
+<p>Spring Boot和Grails</p>
+<p>HttpTrace默认的类，InMemoryHttpTraceRepository，100条，持久化实现需要继承HttpTraceRepository类</p>
+<p>深入Spring Boot应用程序的内部细节：Actuator</p>
+<p>ConfigurationProperties和Environment区别？</p>
+<p>程序的配置，传入到</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-boot-admin"><a class="header" href="#spring-boot-admin">Spring Boot Admin</a></h1>
+<p>https://codecentric.github.io/spring-boot-admin/</p>
+<p>注册方式：Admin Client或者Discovery Client</p>
+<p>服务通过Admin Cli ent注册到Admin Server上了。</p>
+<p>Service引入Admin Client把自己ip注册到Admin Service，然后Admin Service读取Admin Client的actuator接口？</p>
+<p>Admin Client注册的类：ApplicationRegistrator，注册到Admin Server的InstancesController#register方法了。</p>
+<p>Admin Server提供了三个Controller来接受请求，InstancesController，ApplicationsController，InstancesProxyController</p>
+<p>Admin Server通过InstanceWebClient调用Service. 从而对Service进行控制。</p>
+<p>核心实体类：Application，Instance，InstanceEvent（注册，不注册，状态更新，），Registration，InstanceEventStore</p>
+<p>注册信息存在了哪里？InstanceEventStore，默认注册在内存中了。</p>
+<p>基于事件的注册，将事件注册到内存中。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-cloud-common"><a class="header" href="#spring-cloud-common">Spring Cloud Common</a></h1>
+<p>https://docs.spring.io/spring-cloud-commons/docs/current/reference/html/</p>
+<h2 id="core-class"><a class="header" href="#core-class">Core Class</a></h2>
+<p>SpringApplication
+SpringApplicationBuilder 
+BootstrapConfiguration</p>
+<p>DiscoveryClient 
+ServiceRegistry 
+LoadBalancerClient</p>
+<h2 id="notes-6"><a class="header" href="#notes-6">Notes</a></h2>
+<p>Cloud核心包：
+Spring Cloud Context and Spring Cloud Commons and Spring Cloud Load Balancer and Circuit breaker </p>
+<p>child contexts inherit property sources and profiles from their parent</p>
+<p>common patterns: service discovery, load balancing, and circuit breakers</p>
+<p>springcloud common loadbalance and spring cloud loadbalance 区别是什么？</p>
+<p>common里面提供的接口，并没有提供实现，而spring cloud loadbalance提供了实现。
+service discovery/register 实现：consul,zk,eureka
+load balancing 实现：spring cloud loadbalance
+circuit breaker实现：Resilience4J，Sentinel，Spring Retry(Spring Cloud Circuit Breaker)</p>
+<p>一些新的endpoint,引入了spring-boot-actuator，refresh，restart，pause，env</p>
+<p>Refresh入口类是：RefreshEndpoint，RefreshScope实现了GenericScope，GenericScope实现了Scope类，
+也就是@RefreshScope是@Scope(&quot;refresh&quot;)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-cloud-consul"><a class="header" href="#spring-cloud-consul">Spring Cloud Consul</a></h1>
+<p>https://cloud.spring.io/spring-cloud-consul/reference/html/</p>
+<h2 id="-1"><a class="header" href="#-1"></a></h2>
+<p>lookup service:</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-cloud-config"><a class="header" href="#spring-cloud-config">Spring Cloud Config</a></h1>
+<p>https://cloud.spring.io/spring-cloud-config/reference/html/</p>
+<h2 id="core-class-1"><a class="header" href="#core-class-1">Core Class</a></h2>
+<p>Environment </p>
+<p>EnvironmentRepository实现类JGitEnvironmentRepository ，通过Eclipse JGit实现</p>
+<h2 id="notes-7"><a class="header" href="#notes-7">Notes</a></h2>
+<p>The Config Server runs best as a standalone application</p>
+<p>other external property sources </p>
+<p>Config Client：Config First Bootstrap，Discovery First Bootstrap</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-cloud-gateway"><a class="header" href="#spring-cloud-gateway">Spring Cloud Gateway</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-cloud-openfeign"><a class="header" href="#spring-cloud-openfeign">Spring Cloud OpenFeign</a></h1>
+<p>https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-integration"><a class="header" href="#spring-integration">Spring Integration</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring-others"><a class="header" href="#spring-others">Spring Others</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="book-4"><a class="header" href="#book-4">Book</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spring实战第四版"><a class="header" href="#spring实战第四版">Spring实战第四版</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="springboot解密"><a class="header" href="#springboot解密">SpringBoot解密</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kvstore"><a class="header" href="#kvstore">KVStore</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="redis"><a class="header" href="#redis">Redis</a></h1>
+<p>The world’s most loved real‑time data platform</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mapdb"><a class="header" href="#mapdb">MapDB</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="分布式事务"><a class="header" href="#分布式事务">分布式事务</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="atomikos"><a class="header" href="#atomikos">atomikos</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="seata"><a class="header" href="#seata">seata</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="book-5"><a class="header" href="#book-5">Book</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="深入理解分布式事务"><a class="header" href="#深入理解分布式事务">深入理解分布式事务</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="正本清源分布式事务之seata"><a class="header" href="#正本清源分布式事务之seata">正本清源分布式事务之Seata</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="library"><a class="header" href="#library">Library</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="apache-httpcomponents"><a class="header" href="#apache-httpcomponents">apache-httpcomponents</a></h1>
+<p>https://hc.apache.org/httpcomponents-client-4.5.x/current/tutorial/html/fluent.html</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="logback"><a class="header" href="#logback">Logback</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="apache-poi"><a class="header" href="#apache-poi">apache-poi</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="server-sent-events"><a class="header" href="#server-sent-events">Server-Sent-Events</a></h1>
+<p>https://en.wikipedia.org/wiki/Server-sent_events</p>
+<p>https://www.youtube.com/watch?v=2To3_mYT2hc&amp;t=8s</p>
+<p>https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events</p>
+<p>https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-ann-async-sse</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dom4j"><a class="header" href="#dom4j">dom4j</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lombok"><a class="header" href="#lombok">lombok</a></h1>
+<p>@Cleanup</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="logstash-logback-encoder"><a class="header" href="#logstash-logback-encoder">logstash-logback-encoder</a></h1>
+<p>https://github.com/logfellow/logstash-logback-encoder</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="jmx"><a class="header" href="#jmx">jmx</a></h1>
+<p>spring对jmx的处理：</p>
+<p>step1:在spring-framework里面封装jmx,MBeanExporter,AnnotationMBeanExporter</p>
+<p>step2:在spring-autoconfigure中自动配置jmx,JmxAutoConfiguration</p>
+<p>step3:在spring-boot-actuator中通过JmxEndpointExporter将endpoint暴露出去,endpoint本身可以通过http和jmx暴露。
+spring-boot-actuator-autoconfigure中配置JmxEndpointAutoConfiguration</p>
+<p>step4:在spring-boot-admin中通过jolokia暴露所有jmx(endpoint和其他jmx)</p>
+<p>https://docs.oracle.com/javase/tutorial/jmx/overview/index.html</p>
+<p>https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#jmx</p>
+<p>https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.jmx</p>
+<p>https://codecentric.github.io/spring-boot-admin/2.5.1/#jmx-bean-management</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="单元测试"><a class="header" href="#单元测试">单元测试</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="junit5"><a class="header" href="#junit5">junit5</a></h1>
+<p>参数化测试：减少样板代码</p>
+<p>API: ExecutionCondition</p>
+<p>JUnit Jupiter’s org.junit.jupiter.api.Assertions class does not provide an assertThat() method like the one found in 
+JUnit 4’s org.junit.Assert</p>
+<p>Assumptions的作用是什么？</p>
+<p>mode:per-class,per-method</p>
+<p>@Nested:测试之间的关系以及测试结构</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="assertj"><a class="header" href="#assertj">assertj</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mockito"><a class="header" href="#mockito">mockito</a></h1>
+<h2 id="mockito-1"><a class="header" href="#mockito-1">Mockito</a></h2>
+<p>Mockito</p>
+<p>when...thenXXX(not void) ... invoke
+when...thenAnswer ... ... invoke</p>
+<p>doXXX...when (void)... invoke
+doAnswer...when(void)... invoke</p>
+<p>doAnswer使用场景是什么？测试有参数无返回值，无参数无返回值.</p>
+<h2 id="bddmockito"><a class="header" href="#bddmockito">BDDMockito</a></h2>
+<p>BDDMockito</p>
+<p>given...willReturn</p>
+<p>verify</p>
+<p>Argument matchers
+ArgumentCaptor</p>
+<p>@Mock
+@Spy
+@Captor
+@InjectMocks</p>
+<p>SpringBoot:
+@MockBean
+@SpyBean</p>
+<p>@Mock和@MockBean区别是什么？
+@Mock和@InjectMocks区别是什么？
+doAnswer.when和when thenReturn和when thenAnswer和doReturn when区别区别？
+doAnswer.when返回空，就是void方法。</p>
+<p>组合：
+@Mock和@InjectMock
+@MockBean和@Autowired</p>
+<p>Use doAnswer() when you want to stub a void method with generic Answer.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="jacoco"><a class="header" href="#jacoco">jacoco</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="book-6"><a class="header" href="#book-6">Book</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="有效的单元测试"><a class="header" href="#有效的单元测试">有效的单元测试</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="database"><a class="header" href="#database">Database</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mysql"><a class="header" href="#mysql">MySQL</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="canal"><a class="header" href="#canal">Canal</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="doris"><a class="header" href="#doris">Doris</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="运维"><a class="header" href="#运维">运维</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tracing"><a class="header" href="#tracing">Tracing</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="monitoring"><a class="header" href="#monitoring">Monitoring</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="logging"><a class="header" href="#logging">Logging</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rancher"><a class="header" href="#rancher">rancher</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kubernetes"><a class="header" href="#kubernetes">kubernetes</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="harbor"><a class="header" href="#harbor">harbor</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reacher"><a class="header" href="#reacher">Reacher</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aws"><a class="header" href="#aws">aws</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aliyun"><a class="header" href="#aliyun">aliyun</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="replication-and-consistencynot-consensus"><a class="header" href="#replication-and-consistencynot-consensus">Replication And Consistency(Not Consensus)</a></h1>
+<p>在分布式系统中，复制可用来实现Reliable, Scalable. 数据的复制会导致一致性问题。 数据的复制也即同步过程，会带来节点是否可用问题，这也是CAP中的AP权衡。
+复制是一项基础技术，而一致性是这项技术带来的问题。可以认为没有复制便没有一致性问题。</p>
+<p>Replication in database,kv,document-db,column-db,file system, distributed coordination,Framework</p>
+<p>Replication Model https://en.wikipedia.org/wiki/Replication_(computing)</p>
+<p>Consistency Model https://en.wikipedia.org/wiki/Consistency_model</p>
+<p>Consistency Model https://jepsen.io/consistency</p>
+<h2 id="database-1"><a class="header" href="#database-1">Database</a></h2>
+<p>mysql  https://dev.mysql.com/doc/refman/8.0/en/replication.html</p>
+<p>postgresql  https://www.postgresql.org/docs/current/high-availability.html</p>
+<p>mariadb https://mariadb.com/kb/en/standard-replication/</p>
+<h2 id="kv-store"><a class="header" href="#kv-store">KV store</a></h2>
+<p>redis  https://redis.io/topics/replication</p>
+<p>etcd https://etcd.io/docs/v3.3/faq/</p>
+<p>riak https://docs.riak.com/riak/kv/latest/learn/concepts/replication/index.html</p>
+<p>tikv: https://tikv.org/deep-dive/scalability/introduction/</p>
+<p>dynamo</p>
+<p>consul  https://www.consul.io/docs/architecture</p>
+<h2 id="document"><a class="header" href="#document">Document</a></h2>
+<p>mongodb https://docs.mongodb.com/manual/replication/</p>
+<p>couchdb https://docs.couchdb.org/en/stable/replication/intro.html
+https://guide.couchdb.org/editions/1/en/replication.html</p>
+<h2 id="framework"><a class="header" href="#framework">Framework</a></h2>
+<p>hazelcast  https://docs.hazelcast.com/imdg/4.2/consistency-and-replication/consistency</p>
+<p>akka https://doc.akka.io/docs/akka/current/typed/cluster-concepts.html</p>
+<h2 id="column-db"><a class="header" href="#column-db">Column DB</a></h2>
+<p>cassandra  https://cassandra.apache.org/doc/latest/cassandra/architecture/overview.html</p>
+<p>hbase https://hbase.apache.org/book.html#_cluster_replication</p>
+<h2 id="message"><a class="header" href="#message">Message</a></h2>
+<p>kafka https://kafka.apache.org/documentation/#replication
+https://cwiki.apache.org/confluence/display/kafka/kafka+replication</p>
+<p>rabbitmq https://www.rabbitmq.com/ha.html</p>
+<p>rocketmq https://rocketmq.apache.org/docs/rmq-deployment/</p>
+<p>activemq https://activemq.apache.org/clustering</p>
+<h2 id="search"><a class="header" href="#search">Search</a></h2>
+<p>elasticsearch https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery.html</p>
+<p>solr https://solr.apache.org/guide/6_6/index-replication.html</p>
+<h2 id="file-system"><a class="header" href="#file-system">File System</a></h2>
+<p>hdfs https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html#Data+Replication</p>
+<p>ceph</p>
+<p>GFS</p>
+<h2 id="coordination"><a class="header" href="#coordination">Coordination</a></h2>
+<p>zookeeper: https://zookeeper.apache.org/doc/r3.2.2/zookeeperInternals.html</p>
+<h2 id="distributed-databasenewsql"><a class="header" href="#distributed-databasenewsql">Distributed database(newsql)</a></h2>
+<p>yugabyte https://docs.yugabyte.com/latest/architecture/docdb-replication/replication/</p>
+<p>CockroachDB  https://www.cockroachlabs.com/docs/stable/architecture/replication-layer.html</p>
+<h2 id="other"><a class="header" href="#other">other</a></h2>
+<p>Aurora https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.html</p>
+<p>Spanner/F1</p>
+<p>rethinkdb https://rethinkdb.com/docs/architecture/</p>
+<p>Windows Azure Storage https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy</p>
+<p>voldemort  https://www.project-voldemort.com/voldemort/design.html</p>
+<p>Bigtable</p>
+<p>Yahoo PNUTS</p>
+<p>VoltDB https://docs.voltdb.com/UsingVoltDB/ChapReplication.php</p>
+<p>ScyllaDB https://docs.scylladb.com/architecture/</p>
+<p>foundationdb: https://apple.github.io/foundationdb/consistency.html
+https://apple.github.io/foundationdb/fault-tolerance.html</p>
+<table><thead><tr><th>Application</th><th>Replication Model</th><th>Consistency Model</th></tr></thead><tbody>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="partitioningsharding"><a class="header" href="#partitioningsharding">Partitioning&amp;Sharding</a></h1>
+<p>分区是将大数据集拆分成小数据集的方法，拆分会带来两个问题，1 是寻找到分区信息Routing 2 是增减节点时候Rebalance分区</p>
+<p>https://en.wikipedia.org/wiki/Shard_(database_architecture)</p>
+<p>https://en.wikipedia.org/wiki/Partition_(database)</p>
+<p>partition:hazelcast,kafka
+shard:MongoDB,ES,Solr
+region:Hbase,TiKV
+tablet:Bigtable
+vnode:Cassandra,Riak
+vBucket(virtual buckets):Couchbase
+slot:Redis
+ShardRegion:akka</p>
+<h2 id="system"><a class="header" href="#system">System</a></h2>
+<p>Memcached</p>
+<p>Redis:https://redis.io/topics/partitioning
+https://redis.io/topics/cluster-tutorial</p>
+<p>Cassandra https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/architecture/archDataDistributeAbout.html
+https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html#dataset-partitioning-consistent-hashing</p>
+<p>DynamoDB</p>
+<p>Google Spanner</p>
+<p>Shardingsphere</p>
+<p>rethinkdb：https://rethinkdb.com/docs/architecture</p>
+<p>HBase：https://hbase.apache.org/book.html#manual_region_splitting_decisions
+https://hbase.apache.org/book.html#regions.arch</p>
+<p>BigTable：</p>
+<p>MongoDB：https://docs.mongodb.com/manual/sharding/</p>
+<p>voldemort: https://www.project-voldemort.com/voldemort/rebalance.html
+https://www.project-voldemort.com/voldemort/design.html</p>
+<p>Couchbase: https://docs.couchdb.org/en/stable/partitioned-dbs/index.html</p>
+<p>MySQL:https://dev.mysql.com/doc/refman/8.0/en/partitioning.html</p>
+<p>Riak:</p>
+<p>voltdb：https://docs.voltdb.com/UsingVoltDB/IntroHowVoltDBWorks.php</p>
+<p>HDFS:https://blog.cloudera.com/partition-management-in-hadoop/</p>
+<p>Ketama
+https://www.metabrew.com/article/libketama-consistent-hashing-algo-memcached-clients</p>
+<h2 id="request-routing"><a class="header" href="#request-routing">Request Routing</a></h2>
+<p>service discovery</p>
+<p>https://helix.apache.org/</p>
+<p>https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/</p>
+<p>https://github.com/couchbase/moxi</p>
+<h2 id="rebalancingsplitmerge"><a class="header" href="#rebalancingsplitmerge">Rebalancing(Split&amp;Merge)</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="storageengine"><a class="header" href="#storageengine">StorageEngine</a></h1>
+<p>MySQL:https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html</p>
+<p>Postgre:https://wiki.postgresql.org/wiki/Future_of_storage</p>
+<p>Mariadb:https://mariadb.com/kb/en/choosing-the-right-storage-engine/</p>
+<p>cassandra: https://cassandra.apache.org/doc/latest/cassandra/architecture/storage_engine.html</p>
+<p>riak：https://docs.riak.com/riak/kv/2.2.3/setup/planning/backend/bitcask/index.html</p>
+<p>consul,etcd:blot</p>
+<p>leveldb:https://github.com/google/leveldb/blob/main/doc/impl.md</p>
+<p>rocksdb:http://rocksdb.blogspot.com/</p>
+<p>hbase:https://hbase.apache.org/book.html#inmemory_compaction</p>
+<p>elasticsearch:lucene,https://www.elastic.co/cn/blog/found-dive-into-elasticsearch-storage</p>
+<p>solr:lucene</p>
+<p>lucene:https://blog.mikemccandless.com/2011/02/visualizing-lucenes-segment-merges.html</p>
+<p>lmdb:http://www.lmdb.tech/doc/</p>
+<p>voltdb:</p>
+<p>memsql:</p>
+<p>ramcloud:</p>
+<p>redis:</p>
+<p>mongodb:https://docs.mongodb.com/manual/core/storage-engines/</p>
+<p>couchbase:</p>
+<p>OLAP:Teradata,Vertica,SAP HANA,ParAccel,Amazon RedShift</p>
+<p>Apache Hive,SparkSQL,Cloudear Impala,Facebook Presto,Aoache Tajo,Apache Drill,Google Gremel</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="network-partition"><a class="header" href="#network-partition">Network Partition</a></h1>
+<p>https://en.wikipedia.org/wiki/Network_partition</p>
+<p>https://en.wikipedia.org/wiki/Split-brain</p>
+<p>akka:https://doc.akka.io/docs/akka-enhancements/current/split-brain-resolver.html</p>
+<p>hazelcast:
+https://docs.hazelcast.com/imdg/4.2/network-partitioning/split-brain-protection
+https://hazelcast.com/blog/jepsen-analysis-hazelcast-3-8-3/</p>
+<p>es:
+https://www.elastic.co/guide/en/elasticsearch/reference/8.0/modules-discovery-quorums.html
+https://www.elastic.co/guide/en/elasticsearch/reference/8.0/modules-discovery-voting.html
+https://www.elastic.co/guide/en/elasticsearch/reference/8.0/high-availability-cluster-design-large-clusters.html
+https://www.elastic.co/guide/en/elasticsearch/reference/8.0/high-availability-cluster-small-clusters.html</p>
+<p>CouchDB:
+https://guide.couchdb.org/editions/1/en/conflicts.html</p>
+<p>rabbitmq:
+https://www.rabbitmq.com/partitions.html</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="transaction"><a class="header" href="#transaction">Transaction</a></h1>
+<p>https://en.wikipedia.org/wiki/Isolation_(database_systems)</p>
+<p>aerospike:https://aerospike.com/blog/developers-understanding-aerospike-transactions/</p>
+<p>datomic: https://docs.datomic.com/on-prem/transactions/transactions.html</p>
+<p>MySQL:https://dev.mysql.com/doc/refman/8.0/en/innodb-locking-transaction-model.html</p>
+<p>PostgreSQL:https://www.postgresql.org/docs/14/mvcc.html
+K
+Oracle</p>
+<p>SQL Server2012: https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide?view=sql-server-ver15#database-engine-isolation-levels</p>
+<p>FoundationDB:https://apple.github.io/foundationdb/transaction-manifesto.html</p>
+<p>Access</p>
+<p>MemSQL(singlestore):https://dbdb.io/db/singlestore</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="index"><a class="header" href="#index">Index</a></h1>
+<p>https://en.wikipedia.org/wiki/Database_index</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="resiliencypatterns"><a class="header" href="#resiliencypatterns">ResiliencyPatterns</a></h1>
+<h2 id="retry"><a class="header" href="#retry">Retry</a></h2>
+<p>https://github.com/elennick/retry4j</p>
+<p>Guava Retry</p>
+<p>Spring Retry</p>
+<p>resilience4j-retry</p>
+<p>https://failsafe.dev/</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="serviceregistry"><a class="header" href="#serviceregistry">ServiceRegistry</a></h1>
+<p>https://microservices.io/patterns/service-registry.html</p>
+<p>服务注册和发现是分布式系统里面的Naming部分，并不是Communication部分。Communication是Feign做的。</p>
+<p>nacos,zookeeper,etcd,consul,eureka</p>
+<p>nacos:一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台。</p>
+<p>zookeeper:Apache ZooKeeper is an effort to develop and maintain an open-source server which enables highly reliable distributed coordination.</p>
+<p>etcd:A distributed, reliable key-value store for the most critical data of a distributed system</p>
+<p>consul:Consul is a service networking solution to automate network configurations, discover services, and enable secure connectivity across any cloud or runtime.</p>
+<p>eureka:Eureka is a RESTful (Representational State Transfer) service that is primarily used in the AWS cloud for the purpose of discovery, load balancing and failover of middle-tier servers. It plays a critical role in Netflix mid-tier infra.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="person"><a class="header" href="#person">Person</a></h1>
+<p><a href="https://en.wikipedia.org/wiki/Phil_Bernstein">Phil Bernstein</a></p>
+<p><a href="http://www.bailis.org/">Peter Bailis</a>: HAT,Consistency Model</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="技术分享"><a class="header" href="#技术分享">技术分享</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="akka-classic-cluster"><a class="header" href="#akka-classic-cluster">Akka Classic Cluster</a></h1>
+<h2 id="介绍"><a class="header" href="#介绍">介绍</a></h2>
+<p>时间: 2022年4月13日</p>
+<h2 id="ppt"><a class="header" href="#ppt">PPT</a></h2>
+<p>做完上传到Google Doc</p>
+<h2 id="内容简介"><a class="header" href="#内容简介">内容简介</a></h2>
+<h2 id="内容列表"><a class="header" href="#内容列表">内容列表</a></h2>
+<h3 id="集群基本概念概念本身和akka特有的概念成员状态集群演示"><a class="header" href="#集群基本概念概念本身和akka特有的概念成员状态集群演示">集群基本概念(概念本身和AKKA特有的概念，成员状态，集群演示)</a></h3>
+<p>Cluster API Extension:Joining and Leaving a Cluster,Cluster Subscriptions,Cluster State
+Cluster Membership API:Joining,Leaving,Downing
+Node Roles:
+Failure Detector:
+Test
+Configuration:
+Higher level Cluster tools:Cluster Singleton,Cluster Sharding,Distributed Data,Distributed Publish Subscribe,Cluster aware routers
+,Cluster across multiple data centers,Reliable Delivery</p>
+<h3 id="集群功能与模块带演示集群状态变更和脑裂集群案例"><a class="header" href="#集群功能与模块带演示集群状态变更和脑裂集群案例">集群功能与模块（带演示集群状态变更和脑裂/集群案例）</a></h3>
+<p>ShardRegion ShardCoordinator</p>
+<p>Cluster Sharding:ShardCoordinator,Message,ShardRegion,Shard,Entity</p>
+<p>Distributed Publish Subscribe:</p>
+<h3 id="集群设计与实现"><a class="header" href="#集群设计与实现">集群设计与实现</a></h3>
+<p>Akka Cluster provides a fault-tolerant decentralized peer-to-peer based Cluster Membership Service with no single point
+of failure or single point of bottleneck. It does this using gossip protocols and an automatic failure detector.</p>
+<h3 id="集群使用场景-教务案例"><a class="header" href="#集群使用场景-教务案例">集群使用场景-教务案例</a></h3>
+<h3 id="源码速览"><a class="header" href="#源码速览">源码速览</a></h3>
+<p>akka-cluster：remote，coordination，</p>
+<p>akka-cluster-sharding：cluster，distributedData，persistence，clusterTools</p>
+<p>akka-cluster-tools：cluster，coordination</p>
+<p>akka-distributed-data：cluster</p>
+<p>akka-coordination：actor</p>
+<h3 id="集群其它技术"><a class="header" href="#集群其它技术">集群其它技术</a></h3>
+<p>和分布式的区别（stateless vs stateful）</p>
+<p>和服务注册发现区别</p>
+<p>去中心化和中心化区别是什么？通信协议(gossip)，节点职责？</p>
+<p>membership change:raft是配置,akka cluster是节点。</p>
+<p>membership（每个人知道全部节点）</p>
+<p>availability：membership,distributed data,PubSub，Multi-DC
+consistency: singletons,sharding,lease</p>
+<h3 id="classic-cluster和typed-cluster的区别"><a class="header" href="#classic-cluster和typed-cluster的区别">Classic Cluster和Typed Cluster的区别</a></h3>
+<p>Reliable delivery</p>
+<h3 id="akka与应用架构"><a class="header" href="#akka与应用架构">Akka与应用架构</a></h3>
+<p>反应式架构</p>
+<p>Fast Data Architectures for Streaming Applications</p>
+<p>LAMP VS SMACK</p>
+<p>Akka Play Lagom</p>
+<h3 id="参考"><a class="header" href="#参考">参考</a></h3>
+<p>https://doc.akka.io/docs/akka/current/project/examples.html</p>
+<p>akka sbr(Akka Split Brain Resolver):https://www.lightbend.com/blog/lightbend-to-contribute-commercial-features-to-akka-open-source</p>
+<h3 id="实验"><a class="header" href="#实验">实验</a></h3>
+<p>脑裂:
+sh akka cluster start</p>
+<p>sh akka node stop 9</p>
+<p>sh akka node down 8</p>
+<p>集群状态变更：</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h1>
+<h1 id="akka-1"><a class="header" href="#akka-1">Akka</a></h1>
+<p>优先看：https://academy.lightbend.com/</p>
+<p>其次：classic: https://doc.akka.io/docs/akka/current/index-classic.html</p>
+<p>typed:https://doc.akka.io/docs/akka/current/</p>
+<p>API文档：https://doc.akka.io/api/
+JAPI：https://doc.akka.io/japi/akka/2.6/akka/actor/AbstractActor.html</p>
+<p>AKKA中文指南：https://www.bookstack.cn/read/guobinhit-akka-guide/711c3ba85a66f758.md</p>
+<p>http://jasonqu.github.io/akka-doc-cn/2.3.6/scala/book/index.html</p>
+<p>快速开始demo：https://developer.lightbend.com/start/?group=akka</p>
+<p>代码示例：https://github.com/akka/akka-samples</p>
+<p>https://github.com/typesafehub/activator-akka-java-spring
+https://github.com/lightbend</p>
+<p>Akka 响应式架构    https://book.douban.com/subject/26829063/</p>
+<p>Akka实战：Akka实战：快速构建高可用分布式应用    https://book.douban.com/subject/30218333/</p>
+<p>Akka入门与实践    https://book.douban.com/subject/27055163/</p>
+<p>Akka实战 https://book.douban.com/subject/30431012/</p>
+<p>TTT:【技术分享】Akka入门与精品课教务系统分布式实战    http://training.corp.youdao.com/play.php?id=139</p>
+<p>官方文档    https://doc.akka.io/docs/akka/current/typed/guide/index.html</p>
+<p>akka生态：https://akka.io/docs/</p>
+<p>https://developer.lightbend.com/docs/akka-platform-guide/index.html</p>
+<p>使用akka开发微服务：https://developer.lightbend.com/docs/akka-platform-guide/microservices-tutorial/index.html</p>
+<p>lightbend academy: https://academy.lightbend.com/courses</p>
+<p>EBOOK: https://www.lightbend.com/akka-platform/resources</p>
+<h1 id="consul"><a class="header" href="#consul">Consul</a></h1>
+<p>官方文档 https://www.consul.io/docs</p>
+<p>生态：https://www.hashicorp.com/</p>
+<h1 id="hazelcast-2"><a class="header" href="#hazelcast-2">Hazelcast</a></h1>
+<p>优先看：https://training.hazelcast.com/</p>
+<p>官方文档IMDG https://hazelcast.org/imdg/docs/</p>
+<p>https://docs.hazelcast.com/imdg/latest/getting-started.html</p>
+<p>hazelcast文档：https://docs.hazelcast.com/hazelcast/5.1/</p>
+<p>hazelcast mc文档：https://docs.hazelcast.com/management-center/latest/getting-started/overview</p>
+<p>代码示例：https://github.com/hazelcast/hazelcast-code-samples</p>
+<p>https://github.com/hazelcast/hazelcast/wiki</p>
+<p>Quick Start：https://hazelcast.org/imdg/?samplelang=Java+Member&amp;sampleindex=0</p>
+<p>Mastering Hazelcast https://odoepner.files.wordpress.com/2015/04/mastering_hazelcast1.pdf</p>
+<p>最新版本：https://hazelcast.com/resources/mastering-hazelcast/</p>
+<p>官方文档PDF    https://docs.hazelcast.org/docs/4.0.1/manual/pdf/index.pdf</p>
+<h1 id="jackson-1"><a class="header" href="#jackson-1">Jackson</a></h1>
+<p>https://github.com/FasterXML/jackson-docs</p>
+<p>https://github.com/FasterXML/jackson</p>
+<p>https://github.com/FasterXML</p>
+<h1 id="elasticsearch-1"><a class="header" href="#elasticsearch-1">ElasticSearch</a></h1>
+<p>优先看oreilly出版的《ElasticSearch权威指南》<br />
+中文版：https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html(中文有些esquery写的不对，需要辅助英文的看)
+英文版：https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html</p>
+<p>https://www.elastic.co/guide/index.html</p>
+<p>ElasticSearch Elasticsearch源码解析与优化实战    https://book.douban.com/subject/30386800/</p>
+<p>Elasticsearch实战    https://book.douban.com/subject/30380439/</p>
+<p>深入理解ElasticSearch    https://book.douban.com/subject/27066928/</p>
+<p>官方文档    https://www.elastic.co/guide/en/elasticsearch/reference/current/docs.html</p>
+<p>极客时间 62.极客时间-Elasticsearch核心技术与实战</p>
+<p>模型：https://dbdb.io/db/elasticsearch</p>
+<p>Elasticsearch:权威指南 : https://www.elastic.co/guide/cn/elasticsearch/guide/2.x/index.html</p>
+<p>Elasticsearch: The Definitive Guide: A distributed real-time search and analytics engine</p>
+<p>IR:https://nlp.stanford.edu/IR-book/information-retrieval-book.html</p>
+<h1 id="kafka-1"><a class="header" href="#kafka-1">Kafka</a></h1>
+<p>优先看：https://developer.confluent.io/  course:https://developer.confluent.io/learn-kafka/
+其次：https://kafka.apache.org/
+以及 https://cwiki.apache.org/confluence/display/KAFKA/Index</p>
+<p>API:https://kafka.apache.org/30/javadoc/index.html</p>
+<p>https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html</p>
+<p>https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html</p>
+<p>Kafka 深入理解Kakfa核心设计与实践原理    https://book.douban.com/subject/30437872/</p>
+<p>Apache Kafka源码剖析    https://book.douban.com/subject/27038473/</p>
+<p>Apache Kafka实战    https://book.douban.com/subject/30221096/</p>
+<p>Kafka权威指南    https://book.douban.com/subject/27665114/</p>
+<p>Kafka Streams实战    https://book.douban.com/subject/33425155/</p>
+<p>官方文档    https://kafka.apache.org/documentation/#gettingStarted</p>
+<p>https://jaceklaskowski.gitbooks.io/mastering-kafka-streams/content/</p>
+<h1 id="canal-1"><a class="header" href="#canal-1">Canal</a></h1>
+<p>Canal 官方文档    https://github.com/alibaba/canal</p>
+<h1 id="gradle"><a class="header" href="#gradle">Gradle</a></h1>
+<p>Gradle Gradle实战    https://book.douban.com/subject/26609447/
+官方文档    https://docs.gradle.org/current/userguide/userguide.html</p>
+<h1 id="mapdb-1"><a class="header" href="#mapdb-1">MapDB</a></h1>
+<p>官方文档：https://mapdb.org/</p>
+<p>https://dbdb.io/db/mapdb</p>
+<p>mapdb作者youtube：https://www.youtube.com/user/jankotek</p>
+<h1 id="seata-1"><a class="header" href="#seata-1">Seata</a></h1>
+<p>深入理解分布式事务 冰河</p>
+<p>正本清源分布式事务之Seata</p>
+<h1 id="github-repository"><a class="header" href="#github-repository">Github Repository</a></h1>
+<p>https://github.com/xiaozhiliaoo/akka/tree/akka-practice</p>
+<p>https://github.com/xiaozhiliaoo/elasticsearch/tree/es-practice</p>
+<p>https://github.com/xiaozhiliaoo/kafka/tree/kafka-practice</p>
+<p>https://github.com/xiaozhiliaoo/hazelcast/tree/hazelcast-practice</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="参考资料-1"><a class="header" href="#参考资料-1">参考资料</a></h1>
+<h1 id="akka-2"><a class="header" href="#akka-2">Akka</a></h1>
+<p>优先看：https://academy.lightbend.com/</p>
+<p>其次：classic: https://doc.akka.io/docs/akka/current/index-classic.html</p>
+<p>typed:https://doc.akka.io/docs/akka/current/</p>
+<p>API文档：https://doc.akka.io/api/
+JAPI：https://doc.akka.io/japi/akka/2.6/akka/actor/AbstractActor.html</p>
+<p>AKKA中文指南：https://www.bookstack.cn/read/guobinhit-akka-guide/711c3ba85a66f758.md</p>
+<p>http://jasonqu.github.io/akka-doc-cn/2.3.6/scala/book/index.html</p>
+<p>快速开始demo：https://developer.lightbend.com/start/?group=akka</p>
+<p>代码示例：https://github.com/akka/akka-samples</p>
+<p>https://github.com/typesafehub/activator-akka-java-spring
+https://github.com/lightbend</p>
+<p>Akka 响应式架构    https://book.douban.com/subject/26829063/</p>
+<p>Akka实战：Akka实战：快速构建高可用分布式应用    https://book.douban.com/subject/30218333/</p>
+<p>Akka入门与实践    https://book.douban.com/subject/27055163/</p>
+<p>Akka实战 https://book.douban.com/subject/30431012/</p>
+<p>TTT:【技术分享】Akka入门与精品课教务系统分布式实战    http://training.corp.youdao.com/play.php?id=139</p>
+<p>官方文档    https://doc.akka.io/docs/akka/current/typed/guide/index.html</p>
+<p>akka生态：https://akka.io/docs/</p>
+<p>https://developer.lightbend.com/docs/akka-platform-guide/index.html</p>
+<p>使用akka开发微服务：https://developer.lightbend.com/docs/akka-platform-guide/microservices-tutorial/index.html</p>
+<p>lightbend academy: https://academy.lightbend.com/courses</p>
+<p>EBOOK: https://www.lightbend.com/akka-platform/resources</p>
+<h1 id="consul-1"><a class="header" href="#consul-1">Consul</a></h1>
+<p>官方文档 https://www.consul.io/docs</p>
+<p>生态：https://www.hashicorp.com/</p>
+<h1 id="hazelcast-3"><a class="header" href="#hazelcast-3">Hazelcast</a></h1>
+<p>优先看：https://training.hazelcast.com/</p>
+<p>官方文档IMDG https://hazelcast.org/imdg/docs/</p>
+<p>https://docs.hazelcast.com/imdg/latest/getting-started.html</p>
+<p>hazelcast文档：https://docs.hazelcast.com/hazelcast/5.1/</p>
+<p>hazelcast mc文档：https://docs.hazelcast.com/management-center/latest/getting-started/overview</p>
+<p>代码示例：https://github.com/hazelcast/hazelcast-code-samples</p>
+<p>https://github.com/hazelcast/hazelcast/wiki</p>
+<p>Quick Start：https://hazelcast.org/imdg/?samplelang=Java+Member&amp;sampleindex=0</p>
+<p>Mastering Hazelcast https://odoepner.files.wordpress.com/2015/04/mastering_hazelcast1.pdf</p>
+<p>最新版本：https://hazelcast.com/resources/mastering-hazelcast/</p>
+<p>官方文档PDF    https://docs.hazelcast.org/docs/4.0.1/manual/pdf/index.pdf</p>
+<h1 id="jackson-2"><a class="header" href="#jackson-2">Jackson</a></h1>
+<p>https://github.com/FasterXML/jackson-docs</p>
+<p>https://github.com/FasterXML/jackson</p>
+<p>https://github.com/FasterXML</p>
+<h1 id="elasticsearch-2"><a class="header" href="#elasticsearch-2">ElasticSearch</a></h1>
+<p>优先看oreilly出版的《ElasticSearch权威指南》<br />
+中文版：https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html(中文有些esquery写的不对，需要辅助英文的看)
+英文版：https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html</p>
+<p>https://www.elastic.co/guide/index.html</p>
+<p>ElasticSearch Elasticsearch源码解析与优化实战    https://book.douban.com/subject/30386800/</p>
+<p>Elasticsearch实战    https://book.douban.com/subject/30380439/</p>
+<p>深入理解ElasticSearch    https://book.douban.com/subject/27066928/</p>
+<p>官方文档    https://www.elastic.co/guide/en/elasticsearch/reference/current/docs.html</p>
+<p>极客时间 62.极客时间-Elasticsearch核心技术与实战</p>
+<p>模型：https://dbdb.io/db/elasticsearch</p>
+<p>Elasticsearch:权威指南 : https://www.elastic.co/guide/cn/elasticsearch/guide/2.x/index.html</p>
+<p>Elasticsearch: The Definitive Guide: A distributed real-time search and analytics engine</p>
+<p>IR:https://nlp.stanford.edu/IR-book/information-retrieval-book.html</p>
+<h1 id="kafka-2"><a class="header" href="#kafka-2">Kafka</a></h1>
+<p>优先看：https://developer.confluent.io/  course:https://developer.confluent.io/learn-kafka/
+其次：https://kafka.apache.org/
+以及 https://cwiki.apache.org/confluence/display/KAFKA/Index</p>
+<p>API:https://kafka.apache.org/30/javadoc/index.html</p>
+<p>https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html</p>
+<p>https://kafka.apache.org/30/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html</p>
+<p>Kafka 深入理解Kakfa核心设计与实践原理    https://book.douban.com/subject/30437872/</p>
+<p>Apache Kafka源码剖析    https://book.douban.com/subject/27038473/</p>
+<p>Apache Kafka实战    https://book.douban.com/subject/30221096/</p>
+<p>Kafka权威指南    https://book.douban.com/subject/27665114/</p>
+<p>Kafka Streams实战    https://book.douban.com/subject/33425155/</p>
+<p>官方文档    https://kafka.apache.org/documentation/#gettingStarted</p>
+<p>https://jaceklaskowski.gitbooks.io/mastering-kafka-streams/content/</p>
+<h1 id="canal-2"><a class="header" href="#canal-2">Canal</a></h1>
+<p>Canal 官方文档    https://github.com/alibaba/canal</p>
+<h1 id="gradle-1"><a class="header" href="#gradle-1">Gradle</a></h1>
+<p>Gradle Gradle实战    https://book.douban.com/subject/26609447/
+官方文档    https://docs.gradle.org/current/userguide/userguide.html</p>
+<h1 id="mapdb-2"><a class="header" href="#mapdb-2">MapDB</a></h1>
+<p>官方文档：https://mapdb.org/</p>
+<p>https://dbdb.io/db/mapdb</p>
+<p>mapdb作者youtube：https://www.youtube.com/user/jankotek</p>
+<h1 id="seata-2"><a class="header" href="#seata-2">Seata</a></h1>
+<p>深入理解分布式事务 冰河</p>
+<p>正本清源分布式事务之Seata</p>
+<h1 id="github-repository-1"><a class="header" href="#github-repository-1">Github Repository</a></h1>
+<p>https://github.com/xiaozhiliaoo/akka/tree/akka-practice</p>
+<p>https://github.com/xiaozhiliaoo/elasticsearch/tree/es-practice</p>
+<p>https://github.com/xiaozhiliaoo/kafka/tree/kafka-practice</p>
+<p>https://github.com/xiaozhiliaoo/hazelcast/tree/hazelcast-practice</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="mermaid.min.js"></script>
+        <script type="text/javascript" src="mermaid-init.js"></script>
+        <script type="text/javascript" src="smart-anchor.js"></script>
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+        <script src="https://utteranc.es/client.js"
+        repo="RustMagazine/rust_magazine_2021"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>
+
+    </body>
+</html>
