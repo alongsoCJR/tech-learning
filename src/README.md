@@ -25,8 +25,8 @@ SMACK:Spark/Mesos/Akka/Cassandra/Kafka
 | Es     | https://www.elastic.co/guide/cn/elasticsearch/guide/current/full-text-search.html |
 | Kafka  | https://developer.confluent.io/patterns/                     |
 | Spring | https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-autowire |
-
-
+| Redis  | https://redis.io/docs/getting-started/                       |
+| Mysql  | 尚未开始                                                     |
 
 
 

@@ -103,6 +103,8 @@
         - [有效的单元测试](./chapter_12/mybook/effective-unit-testing.md)
 - [Database](./chapter_13/toc.md)
     - [MySQL](./chapter_13/mysql.md)
+    - [Redis](./chapter_13/redis.md)
+    - [Mongdb](./chapter_13/mongdb.md)
     - [Canal](./chapter_13/canal.md)
     - [Doris](./chapter_13/Doris.md)
 - [运维](./chapter_14/toc.md)
