@@ -174,8 +174,80 @@
 <p>4.类似于普通Spring模式，提供库，并且暴露配置且提供默认配置，由应用层自定义设置。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="common-elasticsearch"><a class="header" href="#common-elasticsearch">common-elasticsearch</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="kafka学习笔记"><a class="header" href="#kafka学习笔记">Kafka学习笔记</a></h1>
-<h2 id="1-kafka前瞻架构维度"><a class="header" href="#1-kafka前瞻架构维度">1. <a href="https://alongsocjr.github.io/tech-learning/chapter_6/Kafka_Day1.html">kafka前瞻—架构维度</a></a></h2>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="1kafka前瞻架构维度"><a class="header" href="#1kafka前瞻架构维度">1.kafka前瞻—架构维度</a></h1>
+<h2 id="1-kafka前瞻架构维度"><a class="header" href="#1-kafka前瞻架构维度">1. <a href="https://alongsocjr.github.io/tech-learning/chapter_6/notes/Kafka_Day1.html">kafka前瞻—架构维度</a></a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kafka学习笔记-1"><a class="header" href="#kafka学习笔记-1">Kafka学习笔记</a></h1>
+<h2 id="1-kafka前瞻架构维度-1"><a class="header" href="#1-kafka前瞻架构维度-1">1. kafka前瞻—架构维度</a></h2>
+<p>kafka是什么？消息中间件</p>
+<p>服务——&gt;服务 </p>
+<p>网络到分布式</p>
+<ol>
+<li>单点问题 2. 性能问题</li>
+</ol>
+<p>分布式：一致性，可靠性，可扩展性</p>
+<h3 id="akf"><a class="header" href="#akf">AKF</a></h3>
+<p>x-高可用 横向扩展，水平复制</p>
+<p>y-业务划分 功能分解扩展，比如微服务</p>
+<p>z-数据分区，比如分库分表</p>
+<h3 id="数据处理"><a class="header" href="#数据处理">数据处理</a></h3>
+<p>大数据</p>
+<p>无关的数据 必然分治——&gt;无关的数据就分散到不同的分区里，以追求并发并行</p>
+<p>有关的数据 聚合——&gt; 有关的数据，一定要按原有顺序发送到同一分区里</p>
+<p>分区内部有序，分区外部无序</p>
+<h3 id="kafka-akf分析"><a class="header" href="#kafka-akf分析">Kafka AKF分析</a></h3>
+<p>y轴：topic，不同的业务使用不同topic</p>
+<p>z轴：partiton，对无关的数据打散到不同的分片，分而治之。将相关的数据按顺序聚合到同一个分片</p>
+<p>x轴，对parttion进行副本备份，副本（理论上可以读写分离，但容易出现一致性问题，干脆只能在主P上进行读写）</p>
+<h3 id="zookeeper"><a class="header" href="#zookeeper">Zookeeper</a></h3>
+<p>单机管理-&gt;主从集群   分布式协调，zk不用于存储</p>
+<p>broker与partition的关系？</p>
+<p>broker与zookeeper的关系？</p>
+<p>controller</p>
+<p>Metadata：topic，partition，broker</p>
+<p>旧版本：producer是通过zookeeper获取集群节点信息的</p>
+<p>新老版本的区别：角色之间通信，在业务层次上不再依赖zookeeper（减少zk的负载）</p>
+<h3 id="producer"><a class="header" href="#producer">Producer</a></h3>
+<p>在并发情况下，注意一致性（顺序性保证）的问题</p>
+<pre><code class="language-sql">lock() { 
+		sql
+		producer.produce()
+} unlock();
+
+</code></pre>
+<p>数据保存在哪里？</p>
+<p>kafka的broker的partition里</p>
+<h3 id="consumer"><a class="header" href="#consumer">Consumer</a></h3>
+<p>consumer与patition的关系：n:1/ 1:1</p>
+<p>思考，consumer与patition的关系1:n可不可以? 
+破坏有序性</p>
+<h3 id="group"><a class="header" href="#group">group</a></h3>
+<p>不同业务组之间，需要消费同一topic的数据，可以使用不同的group</p>
+<p>在单一的使用场景下，先要保证，即便追求性能，用多个consumer，应该注意，不能一个分区由多个consumer消费</p>
+<p>数据的重复利用是站在group上</p>
+<h3 id="offset"><a class="header" href="#offset">offset</a></h3>
+<p>比如consumer重启，会不会导致数据重复消费和丢失，围绕的是消费的进度offset</p>
+<p>起初consumer在runtime里维护自身的consumer</p>
+<p>旧版本的offset是通过consumer与zookeeper通信维护的</p>
+<p>新版kafka能自己维护offset</p>
+<p>offset持久化节奏，频率，先后？</p>
+<p>两大问题：</p>
+<ol>
+<li>丢失</li>
+<li>重复消费</li>
+</ol>
+<p>异步的：每间隔5s，先处理业务逻辑，异步提交offset，重复消费</p>
+<p>同步的：处理业务逻辑，同步提交offset</p>
+<p>Consume流程没处理好，提交offset在业务逻辑处理之前，导致丢失</p>
+<p>hbase,es,myisam顺序写</p>
+<p>新版offset的维护</p>
+<p>Consumer-&gt;broker(runtime)-&gt;mem metadata-&gt;磁盘，持久层</p>
+<h3 id="总结"><a class="header" href="#总结">总结</a></h3>
+<ol>
+<li>本节课从分布式AFK角度，分析了kafka作为一个分布式消息中间件（高可用，高扩展），从架构角度对xyz轴分析，分别对应由副本，partition，topic的出现。</li>
+<li>同时既然作为一个集群，就需要有一个协调者，引入了zookeeper，新旧版本的kafka对zookeeper这块进行了比较大的升级。</li>
+<li>zookeeper管理的本质其实是tomcat进程，逻辑意义是broker，里面会有一个controller（主）的概念</li>
+<li>为了消息的顺序性消费，引入了producer和consumer，以及从架构角度如何保证消息顺序消费，不重复消费，以及消息丢失等问题。</li>
+<li>为了解决丢失和重复消费的问题，引入了offset消息消费进度的概念，以及放在哪里进行维护比较好（zookeeper?kafka?三方比如redis/mysql）</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="book"><a class="header" href="#book">Book</a></h1>
 <h1 id="designing-event-driven-system"><a class="header" href="#designing-event-driven-system">Designing Event-Driven System</a></h1>
 <p>turning the database inside out</p>
