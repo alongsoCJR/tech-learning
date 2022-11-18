@@ -171,12 +171,12 @@
 <p>新老版本的区别：角色之间通信，在业务层次上不再依赖zookeeper（减少zk的负载）</p>
 <h3 id="producer"><a class="header" href="#producer">Producer</a></h3>
 <p>在并发情况下，注意一致性（顺序性保证）的问题</p>
-<blockquote>
-<p>lock(){
-sql();
-producer.produce();
-}unlock();</p>
-</blockquote>
+<pre><code class="language-sql">lock() { 
+		sql
+		producer.produce()
+} unlock();
+
+</code></pre>
 <p>数据保存在哪里？</p>
 <p>kafka的broker的partition里</p>
 <h3 id="consumer"><a class="header" href="#consumer">Consumer</a></h3>
