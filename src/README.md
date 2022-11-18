@@ -13,9 +13,9 @@ Inspired by [**lvt4j**](https://lvt4j.51vip.biz/confluence/#all-updates) and ref
 
 Akka:Reactive Architecture
 
-Kafka:Streaming Processing Platform
+Kafka: Streaming Processing Platform
 
-SMACK:Spark/Mesos/Akka/Cassandra/Kafka
+SMACK: Spark/Mesos/Akka/Cassandra/Kafka
 
 ## 学习进度
 

@@ -4,7 +4,7 @@
 
 ## 技术学习笔记
 
-访问地址：[courseop-tech-learning](https://xiaozhiliaoo.github.io/courseop-tech-learning/)
+访问地址：[tech-learning](https://alongsocjr.github.io/tech-learning/index.html)
 
 Inspired By [lvt4j](https://lvt4j.51vip.biz/confluence/#all-updates)
 
@@ -22,11 +22,17 @@ mdbook build
 
 mdbook serve
 
-本地运行 ./start.sh
+本地运行 
+```sql
+./start.sh
+```
 本地访问地址：http://localhost:3000/
 
-## page部署
+## 远程部署
 
 笔记整理完之后，用mdbook+github page发布。
-运行：./up.push.git.sh 
+运行：
+```sql
+./up.push.git.sh 
+```
 
