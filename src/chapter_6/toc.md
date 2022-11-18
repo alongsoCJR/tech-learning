@@ -67,13 +67,11 @@ Metadata：topic，partition，broker
 ### Producer
 
 在并发情况下，注意一致性（顺序性保证）的问题
-
-```
-lock(){
-		sql；
-		producer.produce()
+> lock(){
+	sql();
+	producer.produce();
 }unlock();
-```
+
 
 数据保存在哪里？
 

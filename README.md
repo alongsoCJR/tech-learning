@@ -8,7 +8,7 @@
 
 Inspired By [lvt4j](https://lvt4j.51vip.biz/confluence/#all-updates)
 
-## Run
+## 本地运行
 
 需要前置Rust开发环境
 
@@ -22,9 +22,11 @@ mdbook build
 
 mdbook serve
 
+本地运行 ./start.sh
 本地访问地址：http://localhost:3000/
 
-## TODO
+## page部署
 
 笔记整理完之后，用mdbook+github page发布。
+运行：./up.push.git.sh 
 
