@@ -4,11 +4,12 @@
 
 ### zookeeper的安装
 
-- 参考博客：https://blog.csdn.net/jxq0816/article/details/78586555（brew方式安装）
+- brew方式安装
+  - [参考博客](https://blog.csdn.net/jxq0816/article/details/78586555)
   - 启动zookeeper: zookeeper alongso_pro$ zkServer
   - 查看zookeeper的状态： zookeeper alongso_pro$ zkCli
 - 解压缩方式安装：
-  - 参考博客：https://blog.csdn.net/qi49125/article/details/60779877
+  - [参考博客](https://blog.csdn.net/qi49125/article/details/60779877)
   - zookeeper安装目录：/usr/local/myapp/zookeeper-3.4.12
   - 进入zookeeper安装目录，启动zookeeper:sudo ./bin/zkServer.sh start
   - 停止zookeeper:sudo ./bin/zkServer.sh stop
@@ -19,7 +20,7 @@
 
 ### kafka的安装
 
-- 参考博客：https://blog.csdn.net/u010046908/article/details/62229015（brew方式安装）
+- [brew方式安装](https://blog.csdn.net/u010046908/article/details/62229015)
   - 进入kafka安装目录，启动zookeeper：
     - bin/zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties
   - 启动kafka：
@@ -46,23 +47,16 @@
     - ./bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1://:9902 --topic test --from-beginning
   - 遇到的问题
     - Connection to node -1 could not be established. Broker may not be available.
-    - 参考博客：
-      - https://blog.csdn.net/getyouwant/article/details/79000524
-      - https://blog.51cto.com/ipcpu/2089105
-    - 傻逼了，根据端口访问加什么：// ./bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic topic1 --from-beginning
+    - [参考博客](https://blog.csdn.net/getyouwant/article/details/79000524)、[参考](https://blog.51cto.com/ipcpu/2089105)
+    - 傻逼了，根据端口访问加什么：
+      -  ./bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic topic1 --from-beginning
     - 为什么生产者没有受影响？是不是跟配置文件里的配置有关？
-  - kafka学习博客
-    - https://blog.csdn.net/weixin_44359255/article/details/85560656
-    - https://mp.weixin.qq.com/s/qSUxaZnJtpCJaWKCq_YH8Q
-    - https://tech.meituan.com/2015/01/13/kafka-fs-design-theory.html
-    - https://docs.confluent.io/current/
-    - [https://shiyueqi.github.io/2017/04/27/Kafka-%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6Quota%E5%8A%9F%E8%83%BD/](https://shiyueqi.github.io/2017/04/27/Kafka-流量控制Quota功能/)
-    - http://kafka.apache.org/documentation.html#introduction
 
 参考资料：
 
 1. [topic创建参考](https://support.huaweicloud.com/usermanual-kafka/kafka-ug-180604018.html#kafka-ug-180604018__section1623746152018)
 2. [操作参考](https://segmentfault.com/a/1190000021586525)
+3. [官方文档](http://kafka.apache.org/documentation.html#introduction)
 
 
 
