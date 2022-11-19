@@ -10,6 +10,7 @@
     - [common-elasticsearch](./chapter_0/common-elasticsearch.md)
 - [Kafka](./chapter_6/toc.md)
     - [1.kafka前瞻—架构维度](chapter_6/notes/Kafka_Day1.md)
+    - [2. kafka安装以及常用的命令](chapter_6/notes/Kafka_Day2.md)
     - [Book](./chapter_6/Book.md)
         - [Kafka权威指南](./chapter_6/mybook/Kafka-The-Definitive-Guide.md)
         - [Apache Kafka实战](./chapter_6/mybook/Apache-Kafka-In-Action.md)

@@ -73,7 +73,7 @@ lock() {
 		producer.produce()
 } unlock();
 
-``` 
+```
 
 
 数据保存在哪里？
