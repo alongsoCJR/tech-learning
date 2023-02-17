@@ -2,7 +2,7 @@
 
 ## 1. kafka前瞻—架构维度
 
-kafka是什么？消息中间件
+kafka是什么？分布式消息中间件，分布式流式消息（事件）处理平台
 
 服务——>服务 
 
@@ -84,9 +84,9 @@ kafka的broker的partition里
 
 ### Consumer
 
-consumer与patition的关系：n:1/ 1:1
+consumer与patition的关系：1:n/ 1:1
 
-思考，consumer与patition的关系1:n可不可以? 
+思考，consumer与patition的关系n:1可不可以? 
 破坏有序性
 
 

@@ -1,21 +1,32 @@
 # 简介
 
-我的技术笔记
+我的技术笔记：Inspired by [**lvt4j**](https://lvt4j.51vip.biz/confluence/#all-updates) and reference from.
 
-Inspired by [**lvt4j**](https://lvt4j.51vip.biz/confluence/#all-updates) and reference from.
+本博客使用mdbook+github page进行搭建，相关语法可参考 [mdbook官方指南](https://hellowac.github.io/mdbook_doc/zh-cn/index.htmll)
 
-基础学习: 通读官方文档，熟悉API.
+笔记已经推送到 [个人github仓库](https://github.com/alongsoCJR/tech-learning)
 
-拔高学习: 源码核心设计，接口，机制，流程，抽象等.
+
+
+## 学习方向
+
+基础学习:  通读官方文档，熟悉API. 
+
+拔高学习:  源码核心设计，接口，机制，流程，抽象等.
+
 
 
 ## 技术关键字
 
-Akka:Reactive Architecture
-
 Kafka: Streaming Processing Platform
 
+Akka:Reactive Architecture
+
 SMACK: Spark/Mesos/Akka/Cassandra/Kafka
+
+
+
+
 
 ## 学习进度
 
