@@ -7,6 +7,8 @@ Confluent: Set Your Data in Motion
 
 Confluent is creating the foundational platform for data-in-motion
 
+
+
 ## 提供的新架构，解决方案
 
 事件流处理平台

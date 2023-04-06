@@ -41,7 +41,7 @@
 
 ### kafka常用命令
 
-```sql
+```shell
 -- 低于kafka2.2版本的所有的命令需要依赖zookeeper节点，不支持--bootstrap-server命令
 -- 给kafka创建topic:
 ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
@@ -127,7 +127,7 @@ Broker会保证producer同key（类型）消息的顺序
 
 1. Kafka consumer以什么粒度拉取消息
 
-   >处于性能考虑，每次IO会批量拉取数据
+   >出于性能考虑，每次IO会批量拉取数据
 
 如何维护
 
@@ -156,7 +156,7 @@ Broker会保证producer同key（类型）消息的顺序
 
 单线程：
 
-按顺序，单条处理，offset就是递增的，无论对db，offset频率，成本有点高，CPU，网卡，资源浪费进度控制，进度
+按顺序，单条处理，offset就是递增的，无论对db，offset频率，成本有点高，CPU，网卡，资源浪费，粒度比较细
 
 流式的多线程：
 

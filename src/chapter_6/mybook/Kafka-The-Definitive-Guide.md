@@ -24,7 +24,7 @@ kafka的数据单元，相当于数据库中的一条“记录”，由字节数
 
 #### 模式
 
-消息传输模式，比如常见的JSON，XML，Hadoop开发的一款序列化框架
+消息传输模式，比如常见的JSON，XML，Apache Avro—Hadoop开发的一款序列化框架
 
 #### 主题和分区
 
@@ -32,7 +32,7 @@ kafka的数据单元，相当于数据库中的一条“记录”，由字节数
 
 #### 流
 
-用流来描述Kafka这类系统中的数据，把一个主题的数据看成一个表，流是一组从生产者移动到消费者的数据。Kafka streams，Apache samza,Storm
+用流来描述Kafka这类系统中的数据，把一个主题的数据看成一个表，流是一组从生产者移动到消费者的数据。Kafka streams，Apache samza，Storm
 
 
 

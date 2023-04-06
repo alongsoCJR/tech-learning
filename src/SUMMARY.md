@@ -1,6 +1,6 @@
 # Summary
 
-# 教务技术学习笔记
+# 技术学习笔记
 
 - [介绍](./README.md)
 
@@ -12,6 +12,7 @@
     - [1. kafka前瞻—架构维度](chapter_6/notes/Kafka_Day1.md)
     - [2. kafka安装以及常用的命令](chapter_6/notes/Kafka_Day2.md)
     - [3. 基础开发及消费者提交维护offset不同粒度](chapter_6/notes/Kafka_Day3.md)
+    - [4. ISR，OSR，AR，LW，HW，LEO，ACK原理理论](chapter_6/notes/Kafka_Day4.md)
     - [Book](./chapter_6/Book.md)
         - [Kafka权威指南](./chapter_6/mybook/Kafka-The-Definitive-Guide.md)
         - [Apache Kafka实战](./chapter_6/mybook/Apache-Kafka-In-Action.md)

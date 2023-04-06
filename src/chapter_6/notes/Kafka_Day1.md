@@ -16,9 +16,9 @@ kafka是什么？分布式消息中间件，分布式流式消息（事件）处
 
 ### AKF
 
-x-高可用 横向扩展，水平复制
+x-高可用 横向扩展，水平复制（没解决的问题：一发动全身）
 
-y-业务划分 功能分解扩展，比如微服务
+y-业务划分 功能分解扩展，比如微服务（好的业务迟早会遇见数据瓶颈）
 
 z-数据分区，比如分库分表
 
@@ -36,13 +36,13 @@ z-数据分区，比如分库分表
 
 
 
-### Kafka AKF分析
+### [Kafka AKF分析](https://cloud.tencent.com/developer/article/1975148)
+
+x轴，对parttion进行副本备份，副本（理论上可以读写分离，但容易出现一致性问题，干脆只能在主P上进行读写）
 
 y轴：topic，不同的业务使用不同topic
 
 z轴：partiton，对无关的数据打散到不同的分片，分而治之。将相关的数据按顺序聚合到同一个分片
-
-x轴，对parttion进行副本备份，副本（理论上可以读写分离，但容易出现一致性问题，干脆只能在主P上进行读写）
 
 
 
@@ -128,7 +128,7 @@ hbase,es,myisam顺序写
 
 新版offset的维护
 
-Consumer->broker(runtime)->mem metadata->磁盘，持久层
+consumer->broker(runtime)->mem metadata->磁盘，持久层
 
 ### 总结
 1. 本节课从分布式AFK角度，分析了kafka作为一个分布式消息中间件（高可用，高扩展），从架构角度对xyz轴分析，分别对应由副本，partition，topic的出现。
@@ -136,3 +136,11 @@ Consumer->broker(runtime)->mem metadata->磁盘，持久层
 3. zookeeper管理的本质其实是tomcat进程，逻辑意义是broker，里面会有一个controller（主）的概念
 4. 为了消息的顺序性消费，引入了producer和consumer，以及从架构角度如何保证消息顺序消费，不重复消费，以及消息丢失等问题。
 5. 为了解决丢失和重复消费的问题，引入了offset消息消费进度的概念，以及放在哪里进行维护比较好（zookeeper?kafka?三方比如redis/mysql）
+
+
+
+### 思考
+
+1. Redis哨兵很像 kafka 集群中的 zookeeper 的功能
+2. 微服务AKF拆分，涉及的三种集群模式：主主，主从，主备
+   1. 前两种比较容易理解，最后一种备节点不提供读写，随时顶替上去。
