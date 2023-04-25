@@ -58,7 +58,13 @@
 
 -- 高于2.2版本，支持--bootstrap-server命令
 -- topic创建
-./bin/kafka-topics.sh --create --bootstrap-server 127.0.0.1:9092 --replication-factor 1 --partitions 1 --topic test
+./bin/kafka-topics.sh --create --bootstrap-server 127.0.0.1:9092 --replication-factor 1 --partitions 2 --topic test2
+
+-- 查看topic
+./bin/kafka-topics.sh --describe --bootstrap-server 127.0.0.1:9092 --topic test2
+
+-- 查看消费者组消费的进度offset
+./bin/kafka-consumer-groups.sh  --bootstrap-server 127.0.0.1:9092 --group consumer0 --describe
 
 -- 消费消息
 ./bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic test --from-beginning
@@ -69,16 +75,13 @@
 -- 查看list
 ./bin/kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092
 
--- 查看topic
-./bin/kafka-topics.sh --describe --bootstrap-server 127.0.0.1:9092 --topic test
-
 -- 生产&发送键-值对消息
 ./bin/kafka-console-producer.sh --bootstrap-server 127.0.0.1:9092 --topic test --property parse.key=true
 
 -- 消费&打印键-值对消息
 ./bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic test --property print.key=true
 
-./bin/kafka-consumer-groups.sh  --bootstrap-server 127.0.0.1:9092 --group consumer0 --describe
+
 ```
 
 

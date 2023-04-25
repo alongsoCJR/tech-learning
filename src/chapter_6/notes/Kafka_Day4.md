@@ -25,8 +25,8 @@ kafka对数据只是发送，没有加工的过程
 2. 最终一致性
    1. 过半机制
 3. 弱一致性
-   1. ISR（in-sync replicas），连通性&活跃性
-   2. OSR（outof-sync replicas）,超过阈值时间（10s）,没有心跳
+   1. ISR（in-sync replicas同步副本），连通性&活跃性
+   2. OSR（outof-sync replicas不同步副本），超过阈值时间（10s）,没有心跳
    3. AR(Assignes replicas)，面向分区的副本集合，创建topic的时候你给出了分区的副本数
    4. AR=ISR+OSR
 4. ack=-1的时候，多个broker的消息进度是一致的
@@ -43,11 +43,39 @@ kafka对数据只是发送，没有加工的过程
 
 ### kafka弹性存储
 
-1. LW：LowWatermark 数据裁剪
-2. HW：High Watermark 高水位
-3. LEO：LogEndOffset 
+<p><img src="image/日志复制offset的概念.png" alt="日志复制offset的概念" /></p>
 
+首先这里有两个Broker，也就是两台服务器，然后它们的分区中分别存储了两个 p0 的副本，一个是 Leader，一个是 Follower, 此时生产者开始往 Leader Partition 发送数据，数据最终写到磁盘上的。然后 Follower 会从 Leader那里去同步数据，Follower上的数据也会写到磁盘上。**可是 Follower 是先从 Leader 那去同步然后再写入磁盘的，所以它磁盘上面的数据肯定会比 Leader 的那块少一些**。
 
+#### 概念
+
+1. LW：Low Watermark 数据裁剪
+2. HW：High Watermark，高水位：副本最新一条已提交消息的offset
+3. LEO：LogEndOffset，日志末端位移：副本中下一条待写入消息的offset
+
+在 Kafka 中高水位的作用主要有2个:
+
+- 用来标识分区下的哪些消息是可以被消费者消费的。
+- 协助 Kafka 完成副本数据同步
+
+而LEO一个重要作用就是用来更新HW:
+
+- 如果 Follower 和 Leader 的 LEO 数据同步了, 那么 HW 就可以更新了。
+- HW 之前的消息数据对消费者是可见的, 属于 commited 状态, HW 之后的消息数据对消费者是不可见的。
+
+<p><img src="image/offset的HW和LEO概念.png" alt="offset的HW和LEO概念" /></p>
+
+如上图所示: 每个副本会同时维护 HW 与 LEO 值：
+
+- Leader 保证只有 HW 及其之前的消息，才对消费者是可见的。
+
+- Follower 宕机后重启时会对其日志截断，只保留 HW 及其之前的日志消息（新版本有改动）
+
+- 对于日志末端位移, 即 Log End Offset (LEO)。它表示副本写入下一条消息的位移值。注意: 数字 12 所在的方框是虚线，说明这个副本当前只有 12 条消息，位移值是从 0 到 11，下一条新消息的位移是 12。显然，介于高水位和 LEO 之间的消息就属于未提交消息。**即同一个副本对象，其高水位值不会大于 LEO 值。**
+
+- 高水位和 LEO 是副本对象的两个重要属性。Kafka 使用 Leader 副本的高水位来定义所在分区的高水位。即分区的高水位就是其 Leader 副本的高水位。
+
+  
 
 ### TradeOff
 

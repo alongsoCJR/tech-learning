@@ -15,6 +15,7 @@
     - [4. ISR，OSR，AR，LW，HW，LEO，ACK原理理论](chapter_6/notes/Kafka_Day4.md)
     - [Book](./chapter_6/Book.md)
         - [Kafka权威指南](./chapter_6/mybook/Kafka-The-Definitive-Guide.md)
+        - [ChatGPT写的一篇《Kafka权威指南》总结](./chapter_6/mybook/Kafka-The-Definitive-Guide-Overview.md)
         - [Apache Kafka实战](./chapter_6/mybook/Apache-Kafka-In-Action.md)
         - [深入理解Kafka](./chapter_6/mybook/Deep-Kafka.md)
         - [Apache Kafka源码剖析](./chapter_6/mybook/Apache-Kafka-Code.md)
