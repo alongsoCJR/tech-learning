@@ -182,21 +182,10 @@
 <h3 id="3-基础开发及消费者提交维护offset不同粒度"><a class="header" href="#3-基础开发及消费者提交维护offset不同粒度">3. <a href="https://alongsocjr.github.io/tech-learning/chapter_6/notes/Kafka_Day3.html">基础开发及消费者提交维护offset不同粒度</a></a></h3>
 <h3 id="4-isrosrarlwhwleoack原理理论"><a class="header" href="#4-isrosrarlwhwleoack原理理论">4. <a href="https://alongsocjr.github.io/tech-learning/chapter_6/notes/Kafka_Day4.html">ISR，OSR，AR，LW，HW，LEO，ACK原理理论</a></a></h3>
 <h2 id="书籍"><a class="header" href="#书籍">书籍</a></h2>
-<h3 id="1-chatgpt写的一篇kafka权威指南总结"><a class="header" href="#1-chatgpt写的一篇kafka权威指南总结">1. <a href="https://alongsocjr.github.io/tech-learning/chapter_6/notes/Kafka_Day1.html">chatGPT写的一篇《Kafka权威指南》总结</a></a></h3>
-<h3 id="2-kafka权威指南笔记"><a class="header" href="#2-kafka权威指南笔记">2. <a href="https://alongsocjr.github.io/tech-learning/chapter_6/notes/Kafka_Day2.html">《Kafka权威指南》笔记</a></a></h3>
-<h2 id="git项目地址"><a class="header" href="#git项目地址"><a href="https://github.com/alongsoCJR/kafka">git项目地址</a></a></h2>
-<h1 id="kafka简介"><a class="header" href="#kafka简介">Kafka简介</a></h1>
-<p><a href="https://www.confluent.io/what-is-apache-kafka/">Apache Kafka</a> is an event streaming platform used to collect, process, store, and integrate data at scale. It has numerous use cases including distributed streaming, stream processing, data integration, and pub/sub messaging.</p>
-<p>财富榜top100中，80%的公司用了kafka</p>
-<p>分布式流处理，数据聚合，消息发布和订阅</p>
-<p>Due to Kafka's high throughput, fault tolerance, resilience, and scalability, there are numerous use cases across almost every industry </p>
-<p>高吞吐量，容错性，弹性和可扩展性</p>
-<h6 id="data-integration"><a class="header" href="#data-integration">Data Integration</a></h6>
-<h6 id="metrics-and-monitoring"><a class="header" href="#metrics-and-monitoring">Metrics and Monitoring</a></h6>
-<h6 id="log-aggregation"><a class="header" href="#log-aggregation">Log Aggregation</a></h6>
-<h6 id="stream-processing"><a class="header" href="#stream-processing">Stream Processing</a></h6>
-<h6 id="publish-subscribe-messaging"><a class="header" href="#publish-subscribe-messaging">Publish-Subscribe Messaging</a></h6>
-<p>看到了这里：https://developer.confluent.io/what-is-apache-kafka/</p>
+<h3 id="1-chatgpt写的一篇kafka权威指南总结"><a class="header" href="#1-chatgpt写的一篇kafka权威指南总结">1. <a href="https://alongsocjr.github.io/tech-learning/chapter_6/mybook/Kafka-The-Definitive-Guide-Overview.html">chatGPT写的一篇《Kafka权威指南》总结</a></a></h3>
+<h3 id="2-kafka权威指南笔记"><a class="header" href="#2-kafka权威指南笔记">2. <a href="https://alongsocjr.github.io/tech-learning/chapter_6/mybook/Kafka-The-Definitive-Guide.html">《Kafka权威指南》笔记</a></a></h3>
+<h2 id="地址"><a class="header" href="#地址">地址</a></h2>
+<h4 id="git项目地址"><a class="header" href="#git项目地址"><a href="https://github.com/alongsoCJR/kafka">git项目地址</a></a></h4>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="kafka学习笔记-1"><a class="header" href="#kafka学习笔记-1">Kafka学习笔记</a></h1>
 <h2 id="1-kafka前瞻架构维度-1"><a class="header" href="#1-kafka前瞻架构维度-1">1. kafka前瞻—架构维度</a></h2>
 <p>kafka是什么？分布式消息中间件，分布式流式消息（事件）处理平台</p>
@@ -930,10 +919,20 @@ Most messaging systems keep metadata about what messages have been consumed on t
 <p>There is a side benefit of this decision. A consumer can deliberately rewind back to an old offset and re-consume data. This violates the common contract of a queue, but turns out to be an essential feature for many consumers. For example, if the consumer code has a bug and is discovered after some messages are consumed, the consumer can re-consume those messages once the bug is fixed.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="book"><a class="header" href="#book">Book</a></h1>
 <h1 id="designing-event-driven-system"><a class="header" href="#designing-event-driven-system">Designing Event-Driven System</a></h1>
-<p>turning the database inside out</p>
-<p>using messaging as system of record</p>
 <h1 id="kafkathe-definitive-guide-second-edition"><a class="header" href="#kafkathe-definitive-guide-second-edition">Kafka:The Definitive Guide Second Edition</a></h1>
-<h1 id="make-sense-of-streaming-processingthe-philosophy-behind-apache-kafka-and-scalable-stream-data-platforms"><a class="header" href="#make-sense-of-streaming-processingthe-philosophy-behind-apache-kafka-and-scalable-stream-data-platforms">Make Sense of Streaming Processing:The Philosophy behind Apache Kafka and Scalable Stream Data Platforms</a></h1>
+<h1 id="kafka简介"><a class="header" href="#kafka简介">Kafka简介</a></h1>
+<p><a href="https://www.confluent.io/what-is-apache-kafka/">Apache Kafka</a> is an event streaming platform used to collect, process, store, and integrate data at scale. It has numerous use cases including distributed streaming, stream processing, data integration, and pub/sub messaging.</p>
+<p>财富榜top100中，80%的公司用了kafka</p>
+<p>分布式流处理，数据聚合，消息发布和订阅</p>
+<p>Due to Kafka's high throughput, fault tolerance, resilience, and scalability, there are numerous use cases across almost every industry </p>
+<p>高吞吐量，容错性，弹性和可扩展性</p>
+<h6 id="data-integration"><a class="header" href="#data-integration">Data Integration</a></h6>
+<h6 id="metrics-and-monitoring"><a class="header" href="#metrics-and-monitoring">Metrics and Monitoring</a></h6>
+<h6 id="log-aggregation"><a class="header" href="#log-aggregation">Log Aggregation</a></h6>
+<h6 id="stream-processing"><a class="header" href="#stream-processing">Stream Processing</a></h6>
+<h6 id="publish-subscribe-messaging"><a class="header" href="#publish-subscribe-messaging">Publish-Subscribe Messaging</a></h6>
+<p>看到了这里：https://developer.confluent.io/what-is-apache-kafka/</p>
+<h1 id=""><a class="header" href="#"></a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="kafka权威指南"><a class="header" href="#kafka权威指南">Kafka权威指南</a></h1>
 <h2 id="第一章-初识kafka"><a class="header" href="#第一章-初识kafka">第一章 初识kafka</a></h2>
 <ol>
@@ -1048,7 +1047,7 @@ Most messaging systems keep metadata about what messages have been consumed on t
 <p>replication.factor，主题级别的配置参数，因为 Kafka 的默认复制系数就是 3——不过⽤户可以修改它。即使是在 主题创建之后，也可以通过新增或移除副本来改变复制系数。</p>
 <p>如果复制系数为 N，那么在 N-1 个 broker 失效的情况下，仍然能够从主题读取数据或向主题写⼊数 据。所以，更⾼的复制系数会带来更⾼的可⽤性、可靠性和更少的故障。另⼀⽅⾯，复制系数 N 需要 ⾄少 N 个 broker，⽽且会有 N 个数据副本，也就是说它们会占⽤ N 倍的磁盘空间。我们⼀般会在 可⽤性和存储硬件之间作出权衡。</p>
 <p>副本的分布也很重要。默认情况下，Kafka 会确保分区的每个副本被放在不同的 broker 上。</p>
-<p>为了避免机架级别的故障，我们建议把 broker 分布在多个不同的机架上，并使⽤ broker.rack 参数来为每个 broker 配置所在机架的名字。如果 配置了机架名字，Kafka 会保证分区的副本被分布在多个机架上，从⽽获得更⾼的可⽤性。我</p>
+<p>为了避免机架级别的故障，我们建议把 broker 分布在多个不同的机架上，并使⽤ broker.rack 参数来为每个 broker 配置所在机架的名字。如果 配置了机架名字，Kafka 会保证分区的副本被分布在多个机架上，从⽽获得更⾼的可⽤性。</p>
 <h4 id="不完全的领选举"><a class="header" href="#不完全的领选举">不完全的⾸领选举</a></h4>
 <p>unclean.leader.election.enable只能在 broker 级别（实际上是在集群范围内）进⾏配置，它的默认 值是 true。</p>
 <p>我们之前提到过，当分区⾸领不可⽤时，⼀个同步副本会被选为新⾸领。如果在选举过程中没有丢失 数据，也就是说提交的数据同时存在于所有的同步副本上，那么这个选举就是“完全”的。 但如果在⾸领不可⽤时其他副本都是不同步的，我们该怎么办呢？</p>
@@ -1098,11 +1097,14 @@ Most messaging systems keep metadata about what messages have been consumed on t
 <li>auto.commit.interval.ms</li>
 </ol>
 <p>精准一次、幂等性写⼊</p>
+<h3 id="总结-1"><a class="header" href="#总结-1">总结</a></h3>
+<p>正如我们在本章开头所说的，可靠性并不只是 Kafka 单⽅⾯的事情。我们应该从整个系统层⾯来考虑 可靠性问题，包括应⽤程序的架构、⽣产者和消费者 API 的使⽤⽅式、⽣产者和消费者的配置、主题 的配置以及 broker 的配置。系统的可靠性需要在许多⽅⾯作出权衡，⽐如复杂性、性能、可⽤性和 磁盘空间的使⽤。掌握 Kafka 的各种配置和常⽤模式，对使⽤场景的需求做到⼼中有数，你就可以在 应⽤程序和 Kafka 的可靠性程度以及各种权衡之间作出更好的选择。</p>
+<p>Asks=-1，会导致程序阻塞，</p>
 <h2 id="讲解思路"><a class="header" href="#讲解思路">讲解思路</a></h2>
 <ol>
-<li>CAP</li>
 <li>AKF</li>
 <li>可靠性保证</li>
+<li>kafka的使用场景</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chatgpt写的一篇kafka权威指南总结"><a class="header" href="#chatgpt写的一篇kafka权威指南总结">ChatGPT写的一篇《Kafka权威指南》总结</a></h1>
 <p>《Kafka权威指南》是一本介绍Apache Kafka的技术书籍，是Kafka领域的经典著作之一。在这篇技术分享中，我将从以下几个方面介绍Kafka的核心概念和应用场景。</p>
@@ -1477,7 +1479,7 @@ CP: Consensus algorithms Raft</p>
 <p>Auto Detection:multicast
 TCP/IP
 Cloud Discovery</p>
-<h2 id=""><a class="header" href="#"></a></h2>
+<h2 id="-1"><a class="header" href="#-1"></a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="distributed-data-structures"><a class="header" href="#distributed-data-structures">Distributed Data Structures</a></h1>
 <p>数据结构选择依据：1 是否partitioned 2 AP or CP保证</p>
 <p>AP：</p>
@@ -1942,7 +1944,7 @@ circuit breaker实现：Resilience4J，Sentinel，Spring Retry(Spring Cloud Circ
 也就是@RefreshScope是@Scope(&quot;refresh&quot;)</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="spring-cloud-consul"><a class="header" href="#spring-cloud-consul">Spring Cloud Consul</a></h1>
 <p>https://cloud.spring.io/spring-cloud-consul/reference/html/</p>
-<h2 id="-1"><a class="header" href="#-1"></a></h2>
+<h2 id="-2"><a class="header" href="#-2"></a></h2>
 <p>lookup service:</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="spring-cloud-config"><a class="header" href="#spring-cloud-config">Spring Cloud Config</a></h1>
 <p>https://cloud.spring.io/spring-cloud-config/reference/html/</p>
