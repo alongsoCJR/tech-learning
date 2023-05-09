@@ -45,4 +45,14 @@ Due to Kafka's high throughput, fault tolerance, resilience, and scalability, th
 
 看到了这里：https://developer.confluent.io/what-is-apache-kafka/
 
-# 
+
+
+## kafka coordinator
+
+"协调者"有些陌生，所谓协调者，在Kafka 中对应的术语是Coordinator，它**专门为Consumer Group 服务，负责Group Rebalance 以及提供位移管理和组成员管理等**。
+
+https://zhuanlan.zhihu.com/p/148131411
+
+kafka整体架构：https://cloud.tencent.com/developer/beta/article/1005708?areaSource=106001.1
+
+官方文档：https://kafka.apache.org/documentation/#consumerconfigs

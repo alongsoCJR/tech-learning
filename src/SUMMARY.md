@@ -3,7 +3,6 @@
 # 技术学习笔记
 
 - [介绍](./README.md)
-
 - [Coding](./chapter_0/toc.md)
     - [admin](./chapter_0/admin.md)
     - [common-design](./chapter_0/common-design.md)
@@ -132,6 +131,6 @@
     - [ServiceRegistry](./chapter_15/ServiceRegistry.md)
     - [Person](./chapter_15/Person.md)
 - [技术分享](./tech-sharing/toc.md)
-    - [Akka Classic Cluster](./tech-sharing/Akka-Classic-Cluster.md)
+    - [Kafka-Architect](./tech-sharing/Kafka-Architect.md)
 - [参考资料](./reference/reference.md)
     - [参考资料](./reference/reference.md)
