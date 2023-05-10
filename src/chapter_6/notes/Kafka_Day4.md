@@ -49,11 +49,17 @@ kafka对数据只是发送，没有加工的过程
 
 #### 概念
 
-1. LW：Low Watermark 数据裁剪
-2. HW：High Watermark，高水位：副本最新一条已提交消息的offset
-3. LEO：LogEndOffset，日志末端位移：副本中下一条待写入消息的offset
+1. LW：Low Watermark 低水位
+   1. 分区中所有已经被成功写入但尚未被消费者消费的最小偏移量，用于跟踪已经消费的消息，管理消息的删除以及控制消费者的位置。
 
-在 Kafka 中高水位的作用主要有2个:
+2. HW：High Watermark，高水位
+   1. 副已经被成功写入并且已经被所有 ISR（in-sync replicas）确认的最大偏移量，它用于控制消费者只能消费已经被完全确认的消息，并且用于管理消息的删除。
+
+3. LEO：LogEndOffset，日志末端位移：
+   1. 副本中下一条待写入消息的offset
+
+
+在 Kafka 中HW高水位的作用主要有2个:
 
 - 用来标识分区下的哪些消息是可以被消费者消费的。
 - 协助 Kafka 完成副本数据同步

@@ -26,7 +26,7 @@
     - bin/kafka-server-start /usr/local/etc/kafka/server.properties
 - 解压缩方式安装：
   - 解压缩方式安装
-    - 进入指定的文件（安装目录）创建logs文件夹，并且赋予用户能写 的权限（将/usr/local/myapp/下的文件都赋予）
+    - 进入指定的文件（安装目录）创建logs文件夹，并且赋予用户能写 的权限（将/usr/local/myapp/kafka下的文件都赋予）
     - 启动zookeeper:
       - kafka alongso_pro$ ./bin/zookeeper-server-start.sh /usr/local/myapp/kafka/config/zookeeper.properties &
     - 启动kafka:
