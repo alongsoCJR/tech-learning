@@ -133,4 +133,3 @@
 - [技术分享](./tech-sharing/toc.md)
     - [Kafka-Architect](./tech-sharing/Kafka-Architect.md)
 - [参考资料](./reference/reference.md)
-    - [参考资料](./reference/reference.md)
