@@ -145,3 +145,25 @@ body {
   background: #f5f0eb;
 }
 
+/* 优化Wistia播放器样式 */
+.wistia_responsive_padding {
+  position: relative !important;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.wistia_responsive_wrapper {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .wistia_channel[style*="min-height:60vh"] {
+    min-height: 40vh !important;
+  }
+
+  .wistia_responsive_padding {
+    padding: 75% 0 0 0 !important;
+  }
+}
