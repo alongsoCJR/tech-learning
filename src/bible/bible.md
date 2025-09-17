@@ -1,4 +1,4 @@
-# <span class="bible-title">📖 圣经故事有声平台</span>{.centered}
+# <span class="bible-title">📖 圣经故事有声平台</span>
 
 <div class="bible-divider">✦ 真理使人自由 ✦</div>
 
@@ -40,26 +40,6 @@
   </wistia-playlist>
 </div>
 
-
-
-<div class="video-container" style="margin:3rem auto; max-width:1200px;">
-  <script src="https://fast.wistia.com/assets/external/channel.js" async></script>
-  <link rel="stylesheet" href="https://fast.wistia.com/embed/channel/project/orr4z1jcvk/font.css"/>
-
-  <!-- 主播放器 -->
-  <div class="wistia_channel wistia_async_orr4z1jcvk mode=inline" 
-       style="min-height:60vh; border-radius:8px; overflow:hidden;">
-  </div>
-
-  <!-- 弹出式播放器 -->
-  <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;margin-top:2rem;">
-    <div class="wistia_responsive_wrapper" style="height:100%;position:relative;">
-      <div class="wistia_channel wistia_async_orr4z1jcvk mode=popover" 
-           style="height:100%;width:100%;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-      </div>
-    </div>
-  </div>
-</div>
 
 
 

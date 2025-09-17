@@ -129,6 +129,48 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 8px;
   overflow: hidden;
+  position: relative;
+}
+
+/* 微信视频播放器样式 */
+.wx-video-player {
+  position: relative;
+  min-height: 300px;
+  background: linear-gradient(135deg, #f8fafd 0%, #e8f0f8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.wx-loading-prompt {
+  text-align: center;
+  color: #8B4513;
+  margin-bottom: 1rem;
+}
+
+.wx-loading-prompt .fa {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.wx-play-button {
+  padding: 15px 30px;
+  background: #8B4513;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3);
+}
+
+.wx-play-button:hover {
+  background: #6b3a10;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
 }
 
 /* 滚动条样式 */
@@ -145,25 +187,22 @@ body {
   background: #f5f0eb;
 }
 
-/* 优化Wistia播放器样式 */
-.wistia_responsive_padding {
-  position: relative !important;
-  margin: 2rem auto;
-  max-width: 1200px;
-}
-
-.wistia_responsive_wrapper {
-  border-radius: 8px !important;
-  overflow: hidden !important;
-}
-
-/* 移动端优化 */
+/* 响应式设计 */
 @media (max-width: 768px) {
-  .wistia_channel[style*="min-height:60vh"] {
-    min-height: 40vh !important;
+  body {
+    padding: 1rem;
   }
 
-  .wistia_responsive_padding {
-    padding: 75% 0 0 0 !important;
+  .video-container {
+    margin: 2rem auto;
+  }
+
+  .wx-video-player {
+    min-height: 250px;
+  }
+
+  .wx-play-button {
+    padding: 12px 24px;
+    font-size: 1rem;
   }
 }
