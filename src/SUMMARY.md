@@ -135,3 +135,4 @@
 - [参考资料](./reference/reference.md)
 - [圣经频道](./bible/toc.md)
   - [圣经有声频道](./bible/bible.md)
+  - [创世纪篇](./bible/bible2.md)
