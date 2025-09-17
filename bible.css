@@ -1,0 +1,147 @@
+/* 基础样式 */
+body {
+  font-family: 'Noto Serif SC', serif;
+  background-color: #f5f0eb;
+  color: #333;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+/* 标题样式 */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #2D5F91;
+  margin-bottom: 1rem;
+}
+
+.header .divider {
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #8B4513, transparent);
+  margin: 0 auto;
+}
+
+/* 引言卡片 */
+.intro-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-left: 4px solid #8B4513;
+}
+
+/* 经文引用框 */
+.scripture-box {
+  font-size: 1.5rem;
+  line-height: 1.9;
+  color: #2D5F91;
+  background-color: #f8fafd;
+  border-left: 4px solid #8B4513;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.scripture-box::before {
+  content: "❝";
+  font-size: 3rem;
+  color: #8B4513;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  opacity: 0.3;
+}
+
+/* 时间轴容器 */
+.timeline {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 2rem 0;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #8B4513 #f5f0eb;
+}
+
+/* 时间轴基准线 */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  width: 100%;
+  height: 2px;
+  background: #8B4513;
+  z-index: 1;
+}
+
+/* 时间轴项目 */
+.timeline-item {
+  flex: 0 0 220px;
+  display: inline-flex;
+  flex-direction: column;
+  margin-right: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* 时间轴标记点 */
+.timeline-marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8B4513;
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+/* 时间轴内容 */
+.timeline-content {
+  background: white;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  color: #2D5F91;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
+  color: #666;
+  white-space: normal;
+}
+
+/* 视频容器 */
+.video-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 滚动条样式 */
+.timeline::-webkit-scrollbar {
+  height: 8px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background-color: #8B4513;
+  border-radius: 4px;
+}
+
+.timeline::-webkit-scrollbar-track {
+  background: #f5f0eb;
+}
+

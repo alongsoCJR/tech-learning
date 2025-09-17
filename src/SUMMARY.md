@@ -133,3 +133,5 @@
 - [技术分享](./tech-sharing/toc.md)
     - [Kafka-Architect](./tech-sharing/Kafka-Architect.md)
 - [参考资料](./reference/reference.md)
+- [圣经频道](./bible/toc.md)
+  - [圣经有声频道](./bible/bible.md)

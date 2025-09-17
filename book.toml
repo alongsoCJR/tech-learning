@@ -13,6 +13,7 @@ theme = "mytheme"
 default-theme = "rust"
 git-repository-url = "https://github.com/alongsoCJR/tech-learning"
 additional-js = ["mermaid.min.js", "mermaid-init.js", "smart-anchor.js"]
+additional-css = ["bible.css"]
 mathjax-support = true
 
 [output.html.playground]
